@@ -1,0 +1,45 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+                <input type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Filtered by: </h3>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="products && products.length">
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Bia³ko/100g</th>
+                        <th>T³uszcz/100g</th>
+                        <th>Wêglowodany/100g</th>
+                        <th>W tym cukry</th>
+                        <th>KCal/100g</th>
+                        <th>Kategoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td>{{ product.Name }}</td>
+                        <td>{{ product.ProteinsPer100g }}</td>
+                        <td>{{ product.FatsPer100g }}</td>
+                        <td>{{ product.CarboPer100g }}</td>
+                        <td>{{ product.SugarPer100g }}</td>
+                        <td>{{ product.KCalPer100g }}</td>
+                        <td>{{ product.Category }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
