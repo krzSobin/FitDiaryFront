@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+ï»¿<div class="panel panel-primary">
     <div class="panel-heading">
         {{pageTitle}}
     </div>
@@ -19,17 +19,17 @@
                 <thead>
                     <tr>
                         <th>Produkt</th>
-                        <th>Bia³ko/100g</th>
-                        <th>T³uszcz/100g</th>
-                        <th>Wêglowodany/100g</th>
+                        <th>BiaÅ‚ko/100g</th>
+                        <th>TÅ‚uszcz/100g</th>
+                        <th>WÄ™glowodany/100g</th>
                         <th>W tym cukry</th>
-                        <th>KCal/100g</th>
+                        <th>Kcal/100g</th>
                         <th>Kategoria</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let product of products">
-                        <td>{{ product.Name }}</td>
+                        <td><a [routerLink]="['/product', product.Id]">{{ product.Name }}</a></td>
                         <td>{{ product.ProteinsPer100g }}</td>
                         <td>{{ product.FatsPer100g }}</td>
                         <td>{{ product.CarboPer100g }}</td>

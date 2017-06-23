@@ -12,8 +12,10 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var product_list_component_1 = require("./products/product-list.component");
+var product_detail_component_1 = require("./products/product-detail.component");
 var meal_list_component_1 = require("./meals/meal-list.component");
 var navmenu_component_1 = require("./navmenu/navmenu.component");
+var welcome_component_1 = require("./home/welcome.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,14 +28,20 @@ AppModule = __decorate([
             http_1.HttpModule,
             router_1.RouterModule.forRoot([
                 { path: 'products', component: product_list_component_1.ProductListComponent },
-                { path: 'meals', component: meal_list_component_1.MealListComponent }
+                { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent },
+                { path: 'meals', component: meal_list_component_1.MealListComponent },
+                { path: 'welcome', component: welcome_component_1.WelcomeComponent },
+                { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+                { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
             ], { useHash: true })
         ],
         declarations: [
             app_component_1.AppComponent,
             product_list_component_1.ProductListComponent,
+            product_detail_component_1.ProductDetailComponent,
             meal_list_component_1.MealListComponent,
-            navmenu_component_1.NavMenuComponent
+            navmenu_component_1.NavMenuComponent,
+            welcome_component_1.WelcomeComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

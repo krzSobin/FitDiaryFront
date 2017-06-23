@@ -8,7 +8,7 @@ import { MealService } from './meal.service';
 })
 export class MealListComponent implements OnInit {
 
-    pageTitle: string = "Posi≥ki";
+    pageTitle: string = "Posi≈Çki";
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;

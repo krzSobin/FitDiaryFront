@@ -14,7 +14,7 @@ var meal_service_1 = require("./meal.service");
 var MealListComponent = (function () {
     function MealListComponent(_mealService) {
         this._mealService = _mealService;
-        this.pageTitle = "Posi�ki";
+        this.pageTitle = "Posiłki";
         this.imageWidth = 50;
         this.imageMargin = 2;
         this.showImage = false;

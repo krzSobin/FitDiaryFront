@@ -6,10 +6,20 @@ import { MealService } from './meals/meal.service';
 @Component({
     selector: 'pm-app',
     template: `
-        <div><h1>{{pageTitle}}</h1>
-            <nav-menu></nav-menu>
-            <pm-products></pm-products>
-            <pm-meals></pm-meals>
+        <div>
+            <nav class='navbar navbar-default'>
+                <div class='container-fluid'>
+                    <a class='navbar-brand'>{{pageTitle}}</a>
+                    <ul class='nav navbar-nav'>
+                        <li><a [routerLink]="['/welcome']">Główna</a></li>
+                        <li><a [routerLink]="['/products']">Lista produktów</a></li>
+                        <li><a [routerLink]="['/meals']">Lista posiłków</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class='container'>
+                <router-outlet></router-outlet>
+            </div>
         </div>
     `,
     providers: [
