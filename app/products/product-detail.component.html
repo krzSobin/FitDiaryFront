@@ -1,11 +1,50 @@
-<div class='panel panel-primary'>
-    <div class="panel-heading">
-        {{pageTitle}}
+<div class='panel panel-primary' *ngIf='product'>
+    <div class='panel-heading' style='font-size:large'>
+        {{pageTitle + ': ' + product.productName}}
     </div>
 
-    <div class="panel-footer">
-        <a class="btn btn-default" (click)='onBack()' style="width:80px">
-            <i class="glypicon glyphicon-chevron-left"></i> Back
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Name:</div>
+                    <div class='col-md-6'>{{product.Name}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Bia³ko/100g:</div>
+                    <div class='col-md-6'>{{product.ProteinsPer100g}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>T³uszcz/100g:</div>
+                    <div class='col-md-6'>{{product.FatsPer100g}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Wêglowodany/100g:</div>
+                    <div class='col-md-6'>{{product.CarboPer100g}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>W tym cukier:</div>
+                    <div class='col-md-6'>{{product.SugarPer100g}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Wêglowodany/100g:</div>
+                    <div class='col-md-6'>{{product.CarboPer100g}}</div>
+                </div>
+            </div>
+
+            <div class='col-md-6'>
+                <img class='center-block img-responsive'
+                     [style.width.px]='200'
+                     [style.margin.px]='2'
+                     [src]='product.imageUrl'
+                     [title]='product.productName'>
+            </div>
+        </div>
+    </div>
+
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
         </a>
     </div>
 </div>

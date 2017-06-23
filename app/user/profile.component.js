@@ -7,23 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var product_service_1 = require("./products/product.service");
-var meal_service_1 = require("./meals/meal.service");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.pageTitle = 'Fit Diary';
+var ProfileComponent = (function () {
+    function ProfileComponent() {
     }
-    return AppComponent;
+    return ProfileComponent;
 }());
-AppComponent = __decorate([
+ProfileComponent = __decorate([
     core_1.Component({
-        selector: 'pm-app',
-        template: "\n        <nav-bar></nav-bar>\n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n    ",
-        providers: [
-            product_service_1.ProductService,
-            meal_service_1.MealService
-        ]
+        template: "\n    <h1>Edit Your Profile</h1>\n    <hr>\n    <div class=\"col-md-6\">\n        <h3>[Edit profile form will go here]</h3>\n        <br />\n        <br />\n        <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n        <button type=\"button\" class=\"btn btn-default\">Cancel</button>\n    </div>\n    ",
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], ProfileComponent);
+exports.ProfileComponent = ProfileComponent;
+//# sourceMappingURL=profile.component.js.map

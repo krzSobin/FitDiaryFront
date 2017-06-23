@@ -7,18 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NavMenuComponent = (function () {
-    function NavMenuComponent() {
-        this.pageTitle = 'Menu';
+var NavBarComponent = (function () {
+    function NavBarComponent() {
     }
-    return NavMenuComponent;
+    return NavBarComponent;
 }());
-NavMenuComponent = __decorate([
+NavBarComponent = __decorate([
     core_1.Component({
-        selector: 'nav-menu',
-        templateUrl: './app/navmenu/navmenu.component.html',
-        styleUrls: ['./app/navmenu/navmenu.component.css']
+        selector: 'nav-bar',
+        templateUrl: 'app/nav/navbar.component.html',
+        styles: ["\n        .nav.navbar-nav {font-size: 15px;}\n        #searchForm {margin-right: 100px;}\n        @media (max-width: 1200px) {#searchForm {display:none}}\n    "]
     })
-], NavMenuComponent);
-exports.NavMenuComponent = NavMenuComponent;
-//# sourceMappingURL=navmenu.component.js.map
+], NavBarComponent);
+exports.NavBarComponent = NavBarComponent;
+//# sourceMappingURL=navbar.component.js.map
