@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { ProductService } from './products/product.service';
 import { MealService } from './meals/meal.service';
+import { AuthService } from './user/auth.service';
 
 @Component({
     selector: 'pm-app',
@@ -13,7 +14,8 @@ import { MealService } from './meals/meal.service';
     `,
     providers: [
         ProductService,
-        MealService]
+        MealService,
+        AuthService]
 })
 export class AppComponent {
     pageTitle: string = 'Fit Diary';
