@@ -11,20 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var auth_service_1 = require("./auth.service");
+var router_1 = require("@angular/router");
 var LoginComponent = (function () {
-    function LoginComponent(authService) {
+    function LoginComponent(authService, router) {
         this.authService = authService;
+        this.router = router;
     }
     LoginComponent.prototype.login = function (formValues) {
         this.authService.loginUser(formValues.userName, formValues.password);
+        this.router.navigate(['meals']);
+    };
+    LoginComponent.prototype.cancel = function () {
+        this.router.navigate(['welcome']);
     };
     return LoginComponent;
 }());
 LoginComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/user/login.component.html'
+        templateUrl: 'app/user/login.component.html',
+        styles: ["\n        em {float:right; color:#E05C65; padding-left:10px; }\n    "]
     }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

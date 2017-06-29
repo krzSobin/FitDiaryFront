@@ -16,6 +16,7 @@ var meal_list_component_1 = require("./meals/meal-list.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var welcome_component_1 = require("./home/welcome.component");
 var routes_1 = require("./routes");
+var auth_service_1 = require("./user/auth.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -35,6 +36,9 @@ AppModule = __decorate([
             meal_list_component_1.MealListComponent,
             navbar_component_1.NavBarComponent,
             welcome_component_1.WelcomeComponent
+        ],
+        providers: [
+            auth_service_1.AuthService
         ],
         bootstrap: [app_component_1.AppComponent]
     })

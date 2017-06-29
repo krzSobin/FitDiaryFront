@@ -12,6 +12,7 @@ import { MealListComponent } from './meals/meal-list.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { appRoutes } from './routes';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
     imports: [
@@ -25,6 +26,8 @@ import { appRoutes } from './routes';
         MealListComponent,
         NavBarComponent,
         WelcomeComponent],
+    providers: [
+        AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

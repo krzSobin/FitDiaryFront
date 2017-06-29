@@ -18,12 +18,30 @@ require("rxjs/add/operator/catch");
 var ProductService = (function () {
     function ProductService(_http) {
         this._http = _http;
-        this._productUrl = 'http://localhost:55986/api/foodproducts';
+        this._productUrl = 'http://localhost:55986/api/foodproducts/';
     }
     ProductService.prototype.getProducts = function () {
         return this._http.get(this._productUrl)
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.getProduct = function (id) {
+        return this._http.get(this._productUrl + id)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Product: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.addProduct = function (product) {
+        return this._http.post(this._productUrl, product)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.editProduct = function (product) {
+        return this._http.put(this._productUrl, product)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     ProductService.prototype.handleError = function (error) {
