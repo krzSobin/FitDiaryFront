@@ -6,10 +6,10 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="">Dodaj produkt</a></li>
                 <li><a [routerLink]="['/welcome']">Główna</a></li>
                 <li><a *ngIf="!auth.isAuthenticated()" [routerLink]="['/user/login']">Zaloguj</a></li>
                 <li><a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']">Witaj {{auth.currentUser.firstName}}</a></li>
+                <li><a [routerLink]="['product-new']">Dodaj nowy</a></li>
                 <li><a [routerLink]="['/products']">Lista produktów</a></li>
                 <li><a [routerLink]="['/meals']">Lista posiłków</a></li>
                 <li class="dropdown">

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { IProduct } from './product';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -28,8 +28,13 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    addProduct(product : IProduct): Observable<URL> {
-        return this._http.post(this._productUrl, product)
+    addProduct(product: IProduct): Observable<URL> {
+        let headers = new Headers({
+            'Content-Type':'application/json'
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        return this._http.post(this._productUrl, product, options)
             .map((response: Response) => <URL>response.json())
             .do(data => console.log('Return URL: ' + JSON.stringify(data)))
             .catch(this.handleError);

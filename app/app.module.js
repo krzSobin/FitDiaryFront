@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
 var index_1 = require("./products/index");
 var app_component_1 = require("./app.component");
 var meal_list_component_1 = require("./meals/meal-list.component");
@@ -26,6 +27,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
             http_1.HttpModule,
             router_1.RouterModule.forRoot(routes_1.appRoutes, { useHash: true })
         ],
@@ -33,6 +35,7 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             index_1.ProductListComponent,
             index_1.ProductDetailComponent,
+            index_1.NewProductComponent,
             meal_list_component_1.MealListComponent,
             navbar_component_1.NavBarComponent,
             welcome_component_1.WelcomeComponent

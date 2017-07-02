@@ -33,7 +33,11 @@ var ProductService = (function () {
             .catch(this.handleError);
     };
     ProductService.prototype.addProduct = function (product) {
-        return this._http.post(this._productUrl, product)
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this._http.post(this._productUrl, product, options)
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
             .catch(this.handleError);

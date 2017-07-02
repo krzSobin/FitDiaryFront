@@ -6,4 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./product.service"));
 __export(require("./product-detail.component"));
 __export(require("./product-list.component"));
+__export(require("./new-product.component"));
 //# sourceMappingURL=index.js.map
