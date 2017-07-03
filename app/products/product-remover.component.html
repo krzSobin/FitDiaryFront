@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table" *ngIf="product">
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Bia³ko/100g</th>
+                        <th>T³uszcz/100g</th>
+                        <th>Wêglowodany/100g</th>
+                        <th>W tym cukry</th>
+                        <th>Kcal/100g</th>
+                        <th>Kategoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ product.Name }}</td>
+                        <td>{{ product.ProteinsPer100g }}</td>
+                        <td>{{ product.FatsPer100g }}</td>
+                        <td>{{ product.CarboPer100g }}</td>
+                        <td>{{ product.SugarPer100g }}</td>
+                        <td>{{ product.KCalPer100g }}</td>
+                        <td>{{ product.Category }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <label>Czy napewno chcesz usun¹æ?</label>
+        <button type="button" (click)="deleteProduct()" class="btn btn-default">
+            <span class="glyphicon glyphicon-trash">Usuñ</span>
+        </button>
+    </div>
+</div>

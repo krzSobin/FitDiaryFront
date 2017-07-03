@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import {
     ProductListComponent,
     ProductDetailComponent,
-    NewProductComponent
+    NewProductComponent,
+    ProductRemoverComponent
 } from './products/index'
 import { AppComponent } from './app.component';
 import { MealListComponent } from './meals/meal-list.component';
@@ -27,6 +28,7 @@ import { AuthService } from './user/auth.service';
         ProductListComponent,
         ProductDetailComponent,
         NewProductComponent,
+        ProductRemoverComponent,
         MealListComponent,
         NavBarComponent,
         WelcomeComponent],

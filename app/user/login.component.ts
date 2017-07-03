@@ -9,13 +9,20 @@ import { Router } from '@angular/router';
     `]
 })
 export class LoginComponent {
+    loginInvalid = false;
+
     constructor(private authService: AuthService, private router:Router) {
 
     }
 
-    login(formValues : any) {
-        this.authService.loginUser(formValues.userName, formValues.password);
-        this.router.navigate(['meals']);
+    login(formValues: any) {
+        this.authService.loginUser(formValues.userName, formValues.password).subscribe(resp => {
+            if (!resp) {
+                this.loginInvalid = true;
+            } else {
+                this.router.navigate(['products']);
+            }
+        })
     }
 
     cancel() {

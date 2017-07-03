@@ -36,6 +36,7 @@ AppModule = __decorate([
             index_1.ProductListComponent,
             index_1.ProductDetailComponent,
             index_1.NewProductComponent,
+            index_1.ProductRemoverComponent,
             meal_list_component_1.MealListComponent,
             navbar_component_1.NavBarComponent,
             welcome_component_1.WelcomeComponent

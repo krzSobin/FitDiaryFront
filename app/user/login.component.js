@@ -16,10 +16,18 @@ var LoginComponent = (function () {
     function LoginComponent(authService, router) {
         this.authService = authService;
         this.router = router;
+        this.loginInvalid = false;
     }
     LoginComponent.prototype.login = function (formValues) {
-        this.authService.loginUser(formValues.userName, formValues.password);
-        this.router.navigate(['meals']);
+        var _this = this;
+        this.authService.loginUser(formValues.userName, formValues.password).subscribe(function (resp) {
+            if (!resp) {
+                _this.loginInvalid = true;
+            }
+            else {
+                _this.router.navigate(['products']);
+            }
+        });
     };
     LoginComponent.prototype.cancel = function () {
         this.router.navigate(['welcome']);

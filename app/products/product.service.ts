@@ -47,6 +47,13 @@ export class ProductService {
             .catch(this.handleError);
     }
 
+    deleteProduct(id: number): Observable<any> {
+        return this._http.put(this._productUrl, id)
+            .map((response: Response) => <URL>response.json())
+            .do(data => console.log('Return URL: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');

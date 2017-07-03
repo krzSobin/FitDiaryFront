@@ -25,6 +25,7 @@
                         <th>W tym cukry</th>
                         <th>Kcal/100g</th>
                         <th>Kategoria</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,9 @@
                         <td>{{ product.SugarPer100g }}</td>
                         <td>{{ product.KCalPer100g }}</td>
                         <td>{{ product.Category }}</td>
+                        <td>
+                            <a [routerLink]="['/product/delete', product.Id]"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

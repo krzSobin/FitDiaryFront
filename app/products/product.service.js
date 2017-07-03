@@ -48,6 +48,12 @@ var ProductService = (function () {
             .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
+    ProductService.prototype.deleteProduct = function (id) {
+        return this._http.put(this._productUrl, id)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
     ProductService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

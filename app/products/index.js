@@ -7,4 +7,5 @@ __export(require("./product.service"));
 __export(require("./product-detail.component"));
 __export(require("./product-list.component"));
 __export(require("./new-product.component"));
+__export(require("./product-remover.component"));
 //# sourceMappingURL=index.js.map
