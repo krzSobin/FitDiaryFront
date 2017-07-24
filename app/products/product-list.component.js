@@ -27,14 +27,14 @@ var ProductListComponent = (function () {
         this._productService.getProducts()
             .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
     };
+    ProductListComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-products',
+            templateUrl: 'app/products/product-list.component.html'
+        }),
+        __metadata("design:paramtypes", [product_service_1.ProductService])
+    ], ProductListComponent);
     return ProductListComponent;
 }());
-ProductListComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-products',
-        templateUrl: 'app/products/product-list.component.html'
-    }),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
-], ProductListComponent);
 exports.ProductListComponent = ProductListComponent;
 //# sourceMappingURL=product-list.component.js.map

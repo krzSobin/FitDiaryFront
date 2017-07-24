@@ -11,12 +11,12 @@ var WelcomeComponent = (function () {
     function WelcomeComponent() {
         this.pageTitle = 'Welcome';
     }
+    WelcomeComponent = __decorate([
+        core_1.Component({
+            templateUrl: 'app/home/welcome.component.html'
+        })
+    ], WelcomeComponent);
     return WelcomeComponent;
 }());
-WelcomeComponent = __decorate([
-    core_1.Component({
-        templateUrl: 'app/home/welcome.component.html'
-    })
-], WelcomeComponent);
 exports.WelcomeComponent = WelcomeComponent;
 //# sourceMappingURL=welcome.component.js.map

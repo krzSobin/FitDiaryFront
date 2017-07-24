@@ -30,11 +30,11 @@ var MealService = (function () {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
+    MealService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], MealService);
     return MealService;
 }());
-MealService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], MealService);
 exports.MealService = MealService;
 //# sourceMappingURL=meal.service.js.map

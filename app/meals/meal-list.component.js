@@ -27,14 +27,14 @@ var MealListComponent = (function () {
         this._mealService.getMeals()
             .subscribe(function (meals) { return _this.meals = meals; }, function (error) { return _this.errorMessage = error; });
     };
+    MealListComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-meals',
+            templateUrl: 'app/meals/meal-list.component.html'
+        }),
+        __metadata("design:paramtypes", [meal_service_1.MealService])
+    ], MealListComponent);
     return MealListComponent;
 }());
-MealListComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-meals',
-        templateUrl: 'app/meals/meal-list.component.html'
-    }),
-    __metadata("design:paramtypes", [meal_service_1.MealService])
-], MealListComponent);
 exports.MealListComponent = MealListComponent;
 //# sourceMappingURL=meal-list.component.js.map

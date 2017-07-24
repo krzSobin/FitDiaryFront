@@ -15,15 +15,15 @@ var NavBarComponent = (function () {
     function NavBarComponent(auth) {
         this.auth = auth;
     }
+    NavBarComponent = __decorate([
+        core_1.Component({
+            selector: 'nav-bar',
+            templateUrl: 'app/nav/navbar.component.html',
+            styles: ["\n        .nav.navbar-nav {font-size: 15px;}\n        #searchForm {margin-right: 100px;}\n        @media (max-width: 1200px) {#searchForm {display:none}}\n    "]
+        }),
+        __metadata("design:paramtypes", [auth_service_1.AuthService])
+    ], NavBarComponent);
     return NavBarComponent;
 }());
-NavBarComponent = __decorate([
-    core_1.Component({
-        selector: 'nav-bar',
-        templateUrl: 'app/nav/navbar.component.html',
-        styles: ["\n        .nav.navbar-nav {font-size: 15px;}\n        #searchForm {margin-right: 100px;}\n        @media (max-width: 1200px) {#searchForm {display:none}}\n    "]
-    }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
-], NavBarComponent);
 exports.NavBarComponent = NavBarComponent;
 //# sourceMappingURL=navbar.component.js.map

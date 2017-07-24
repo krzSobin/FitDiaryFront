@@ -13,17 +13,17 @@ var AppComponent = (function () {
     function AppComponent() {
         this.pageTitle = 'Fit Diary';
     }
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-app',
+            template: "\n        <nav-bar></nav-bar>\n        <router-outlet></router-outlet>\n    ",
+            providers: [
+                product_service_1.ProductService,
+                meal_service_1.MealService
+            ]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-app',
-        template: "\n        <nav-bar></nav-bar>\n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n    ",
-        providers: [
-            product_service_1.ProductService,
-            meal_service_1.MealService
-        ]
-    })
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

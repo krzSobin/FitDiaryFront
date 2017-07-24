@@ -32,14 +32,14 @@ var LoginComponent = (function () {
     LoginComponent.prototype.cancel = function () {
         this.router.navigate(['welcome']);
     };
+    LoginComponent = __decorate([
+        core_1.Component({
+            templateUrl: 'app/user/login.component.html',
+            styles: ["\n        em {float:right; color:#E05C65; padding-left:10px; }\n    "]
+        }),
+        __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+    ], LoginComponent);
     return LoginComponent;
 }());
-LoginComponent = __decorate([
-    core_1.Component({
-        templateUrl: 'app/user/login.component.html',
-        styles: ["\n        em {float:right; color:#E05C65; padding-left:10px; }\n    "]
-    }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
-], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

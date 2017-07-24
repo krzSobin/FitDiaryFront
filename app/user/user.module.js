@@ -16,21 +16,21 @@ var login_component_1 = require("./login.component");
 var UserModule = (function () {
     function UserModule() {
     }
+    UserModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.FormsModule,
+                router_1.RouterModule.forChild(user_routes_1.userRoutes)
+            ],
+            declarations: [
+                profile_component_1.ProfileComponent,
+                login_component_1.LoginComponent
+            ],
+            providers: []
+        })
+    ], UserModule);
     return UserModule;
 }());
-UserModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule,
-            forms_1.FormsModule,
-            router_1.RouterModule.forChild(user_routes_1.userRoutes)
-        ],
-        declarations: [
-            profile_component_1.ProfileComponent,
-            login_component_1.LoginComponent
-        ],
-        providers: []
-    })
-], UserModule);
 exports.UserModule = UserModule;
 //# sourceMappingURL=user.module.js.map

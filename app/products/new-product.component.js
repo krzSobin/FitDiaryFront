@@ -26,14 +26,14 @@ var NewProductComponent = (function () {
     NewProductComponent.prototype.cancel = function () {
         this.router.navigate(['products']);
     };
+    NewProductComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-new-product',
+            templateUrl: 'app/products/new-product.component.html'
+        }),
+        __metadata("design:paramtypes", [product_service_1.ProductService, router_1.Router])
+    ], NewProductComponent);
     return NewProductComponent;
 }());
-NewProductComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-new-product',
-        templateUrl: 'app/products/new-product.component.html'
-    }),
-    __metadata("design:paramtypes", [product_service_1.ProductService, router_1.Router])
-], NewProductComponent);
 exports.NewProductComponent = NewProductComponent;
 //# sourceMappingURL=new-product.component.js.map

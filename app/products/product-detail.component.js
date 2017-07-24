@@ -24,14 +24,14 @@ var ProductDetailComponent = (function () {
     ProductDetailComponent.prototype.onBack = function () {
         this._router.navigate(['/products']);
     };
+    ProductDetailComponent = __decorate([
+        core_1.Component({
+            templateUrl: 'app/products/product-detail.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router])
+    ], ProductDetailComponent);
     return ProductDetailComponent;
 }());
-ProductDetailComponent = __decorate([
-    core_1.Component({
-        templateUrl: 'app/products/product-detail.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router])
-], ProductDetailComponent);
 exports.ProductDetailComponent = ProductDetailComponent;
 //# sourceMappingURL=product-detail.component.js.map

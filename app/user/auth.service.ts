@@ -44,7 +44,7 @@ export class AuthService {
     }
 
     isAuthenticated() {
-        console.log(JSON.parse(localStorage.getItem('currentUser'));
+        console.log(JSON.parse(localStorage.getItem('currentUser')));
         console.log(!this.token);
         return !!this.token;
     }

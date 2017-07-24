@@ -24,14 +24,14 @@ var ProductRemoverComponent = (function () {
         this._productService.getProduct(this.productId)
             .subscribe(function (product) { return _this.product = product; }, function (error) { return _this.errorMessage = error; });
     };
+    ProductRemoverComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-product-remover',
+            templateUrl: 'app/products/product-remover.component.html'
+        }),
+        __metadata("design:paramtypes", [product_service_1.ProductService, router_1.ActivatedRoute, router_1.Router])
+    ], ProductRemoverComponent);
     return ProductRemoverComponent;
 }());
-ProductRemoverComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-product-remover',
-        templateUrl: 'app/products/product-remover.component.html'
-    }),
-    __metadata("design:paramtypes", [product_service_1.ProductService, router_1.ActivatedRoute, router_1.Router])
-], ProductRemoverComponent);
 exports.ProductRemoverComponent = ProductRemoverComponent;
 //# sourceMappingURL=product-remover.component.js.map

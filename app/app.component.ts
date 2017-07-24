@@ -7,9 +7,7 @@ import { MealService } from './meals/meal.service';
     selector: 'pm-app',
     template: `
         <nav-bar></nav-bar>
-        <div class='container'>
-            <router-outlet></router-outlet>
-        </div>
+        <router-outlet></router-outlet>
     `,
     providers: [
         ProductService,
