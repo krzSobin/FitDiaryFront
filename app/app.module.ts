@@ -12,6 +12,7 @@ import {
 } from './products/index'
 import { AppComponent } from './app.component';
 import { MealListComponent } from './meals/meal-list.component';
+import { MealNewComponent } from './meals/create/meal-new.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { appRoutes } from './routes';
@@ -29,6 +30,7 @@ import { AuthService } from './user/auth.service';
         ProductDetailComponent,
         NewProductComponent,
         ProductRemoverComponent,
+        MealNewComponent,
         MealListComponent,
         NavBarComponent,
         WelcomeComponent],

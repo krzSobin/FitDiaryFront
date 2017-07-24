@@ -14,6 +14,7 @@ var forms_1 = require("@angular/forms");
 var index_1 = require("./products/index");
 var app_component_1 = require("./app.component");
 var meal_list_component_1 = require("./meals/meal-list.component");
+var meal_new_component_1 = require("./meals/create/meal-new.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var welcome_component_1 = require("./home/welcome.component");
 var routes_1 = require("./routes");
@@ -35,6 +36,7 @@ var AppModule = (function () {
                 index_1.ProductDetailComponent,
                 index_1.NewProductComponent,
                 index_1.ProductRemoverComponent,
+                meal_new_component_1.MealNewComponent,
                 meal_list_component_1.MealListComponent,
                 navbar_component_1.NavBarComponent,
                 welcome_component_1.WelcomeComponent

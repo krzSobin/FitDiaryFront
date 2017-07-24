@@ -9,34 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
-var meal_service_1 = require("./meal.service");
-var MealListComponent = (function () {
-    function MealListComponent(_mealService, router) {
+var router_1 = require("@angular/router");
+var meal_service_1 = require("../meal.service");
+var MealNewComponent = (function () {
+    function MealNewComponent(_mealService, router) {
         this._mealService = _mealService;
         this.router = router;
-        this.pageTitle = "Posiłki";
-        this.imageWidth = 50;
-        this.imageMargin = 2;
-        this.showImage = false;
     }
-    MealListComponent.prototype.toggleImage = function () {
-        this.showImage = !this.showImage;
-    };
-    MealListComponent.prototype.ngOnInit = function () {
+    MealNewComponent.prototype.addMeal = function (formValues) {
         var _this = this;
-        this._mealService.getMeals()
-            .subscribe(function (meals) { return _this.meals = meals; }, function (error) { return _this.errorMessage = error; });
+        console.log("blaaa");
+        this._mealService.add(formValues)
+            .subscribe(function (mealUrl) { return _this.mealUrl = mealUrl; }, function (error) { return _this.errorMessage = error; });
+        this.router.navigate(['meals']);
     };
-    MealListComponent = __decorate([
+    MealNewComponent.prototype.cancel = function () {
+        this.router.navigate(['meals']);
+    };
+    MealNewComponent = __decorate([
         core_1.Component({
-            selector: 'pm-meals',
-            templateUrl: 'app/meals/meal-list.component.html'
+            //template: `<p>aaaaaa</p>`
+            templateUrl: 'app/meals/create/meal-new.component.html'
         }),
         __metadata("design:paramtypes", [meal_service_1.MealService, router_1.Router])
-    ], MealListComponent);
-    return MealListComponent;
+    ], MealNewComponent);
+    return MealNewComponent;
 }());
-exports.MealListComponent = MealListComponent;
-//# sourceMappingURL=meal-list.component.js.map
+exports.MealNewComponent = MealNewComponent;
+//# sourceMappingURL=meal-new.component.js.map

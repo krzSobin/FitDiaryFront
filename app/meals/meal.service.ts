@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { IMeal } from './meal';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -18,6 +18,18 @@ export class MealService {
         return this._http.get(this._mealUrl)
             .map((response: Response) => <IMeal[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    add(meal: IMeal): Observable<URL> {
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        return this._http.post(this._mealUrl, meal, options)
+            .map((response: Response) => <URL>response.json())
+            .do(data => console.log('Return URL: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 

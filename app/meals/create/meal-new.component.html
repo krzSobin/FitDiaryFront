@@ -1,0 +1,49 @@
+﻿<div class="container">
+    <h1>Dodaj posiłek</h1>
+    <hr />
+    <div class="col-md-4">
+        <form #createMealForm="ngForm" (ngSubmit)="addMeal(createMealForm.value)" autocomplete="off" novalidate>
+            <div class="form-group">
+                <label for="Date">Data:</label>
+                <em *ngIf="createMealForm.controls.Date?.invalid && createMealForm.controls.Date?.touched || mouseoverLogin">Wymagane</em>
+                <input (ngModel)="Date" name="Date" required id="Date" type="text" class="form-control"
+                       placeholder="Data..." />
+            </div>
+            <div class="form-group">
+                <label for="TotalKcal">kalorie</label>
+                <em *ngIf="createMealForm.controls.TotalKcal?.invalid && createMealForm.controls.TotalKcal?.touched || mouseoverLogin">Wymagane</em>
+                <input (ngModel)="TotalKcal" name="TotalKcal" required id="TotalKcal" type="text" class="form-control"
+                       placeholder="kalorie" />
+            </div>
+            <div class="form-group">
+                <label for="TotalProtein">białko</label>
+                <em *ngIf="createMealForm.controls.TotalProtein?.invalid && createMealForm.controls.TotalProtein?.touched || mouseoverLogin">Wymagane</em>
+                <input (ngModel)="TotalProtein" name="TotalProtein" required id="TotalProtein" type="text" class="form-control"
+                       placeholder="białko" />
+            </div>
+            <div class="form-group">
+                <label for="TotalCarb">Węglowodany</label>
+                <em *ngIf="createMealForm.controls.TotalCarb?.invalid && createMealForm.controls.TotalCarb?.touched || mouseoverLogin">Wymagane</em>
+                <input (ngModel)="TotalCarb" name="TotalCarb" required id="TotalCarb" type="text" class="form-control"
+                       placeholder="Węglowodany" />
+            </div>
+            <div class="form-group">
+                <label for="TotalSugar">W tym cukier</label>
+                <em *ngIf="createMealForm.controls.TotalSugar?.invalid && createMealForm.controls.TotalSugar?.touched || mouseoverLogin">Wymagane</em>
+                <input (ngModel)="TotalSugar" name="TotalSugar" required id="TotalSugar" type="text" class="form-control"
+                       placeholder="W tym cukier..." />
+            </div>
+            <div class="form-group">
+                <label for="TotalFat">Tłuszcz</label>
+                <em *ngIf="createMealForm.controls.TotalFat?.invalid && createMealForm.controls.TotalFat?.touched || mouseoverLogin">Required</em>
+                <input (ngModel)="TotalFat" name="TotalFat" required id="TotalFat" type="text" class="form-control"
+                       placeholder="tłuszcz" />
+            </div>
+
+            <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
+                <button type="submit" [disabled]="createMealForm.invalid" class="btn btn-primary">Dodaj</button>
+            </span>
+            <button type="button" (click)="cancel()" class="btn btn-default">Anuluj</button>
+        </form>
+    </div>
+</div>

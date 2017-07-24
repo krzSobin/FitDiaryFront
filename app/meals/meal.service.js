@@ -26,6 +26,16 @@ var MealService = (function () {
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
+    MealService.prototype.add = function (meal) {
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this._http.post(this._mealUrl, meal, options)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
     MealService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

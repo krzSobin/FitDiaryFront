@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IMeal } from './meal';
 import { MealService } from './meal.service';
@@ -6,6 +7,7 @@ import { MealService } from './meal.service';
     selector: 'pm-meals',
     templateUrl: 'app/meals/meal-list.component.html'
 })
+
 export class MealListComponent implements OnInit {
 
     pageTitle: string = "Posiłki";
@@ -15,7 +17,7 @@ export class MealListComponent implements OnInit {
     meals: IMeal[];
     errorMessage: string;
 
-    constructor(private _mealService: MealService){ }
+    constructor(private _mealService: MealService, private router: Router){ }
 
     toggleImage(): void {
         this.showImage = !this.showImage;
