@@ -13,4 +13,10 @@ import { AuthService } from '../user/auth.service';
 
 export class NavBarComponent {
     constructor(private auth: AuthService) { }
+
+    isIn = false;   // store state
+    toggleState() { // click handler
+        let bool = this.isIn;
+        this.isIn = bool === false ? true : false;
+    }
 }

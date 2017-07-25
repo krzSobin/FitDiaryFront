@@ -14,7 +14,12 @@ var auth_service_1 = require("../user/auth.service");
 var NavBarComponent = (function () {
     function NavBarComponent(auth) {
         this.auth = auth;
+        this.isIn = false; // store state
     }
+    NavBarComponent.prototype.toggleState = function () {
+        var bool = this.isIn;
+        this.isIn = bool === false ? true : false;
+    };
     NavBarComponent = __decorate([
         core_1.Component({
             selector: 'nav-bar',

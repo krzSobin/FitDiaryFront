@@ -1,48 +1,50 @@
-﻿<div class="panel panel-primary">
-    <div class="panel-heading">
-        {{pageTitle}}
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-2">Filter by:</div>
-            <div class="col-md-4">
-                <input type="text" />
-            </div>
+﻿<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{pageTitle}}
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Filtered by: </h3>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">Filter by:</div>
+                <div class="col-md-4">
+                    <input type="text" />
+                </div>
             </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table" *ngIf="products && products.length">
-                <thead>
-                    <tr>
-                        <th>Produkt</th>
-                        <th>Białko/100g</th>
-                        <th>Tłuszcz/100g</th>
-                        <th>Węglowodany/100g</th>
-                        <th>W tym cukry</th>
-                        <th>Kcal/100g</th>
-                        <th>Kategoria</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let product of products">
-                        <td><a [routerLink]="['/product', product.Id]">{{ product.Name }}</a></td>
-                        <td>{{ product.ProteinsPer100g }}</td>
-                        <td>{{ product.FatsPer100g }}</td>
-                        <td>{{ product.CarboPer100g }}</td>
-                        <td>{{ product.SugarPer100g }}</td>
-                        <td>{{ product.KCalPer100g }}</td>
-                        <td>{{ product.Category }}</td>
-                        <td>
-                            <a [routerLink]="['/product/delete', product.Id]"><span class="glyphicon glyphicon-trash"></span></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Filtered by: </h3>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table" *ngIf="products && products.length">
+                    <thead>
+                        <tr>
+                            <th>Produkt</th>
+                            <th>Białko/100g</th>
+                            <th>Tłuszcz/100g</th>
+                            <th>Węglowodany/100g</th>
+                            <th>W tym cukry</th>
+                            <th>Kcal/100g</th>
+                            <th>Kategoria</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <td><a [routerLink]="['/product', product.Id]">{{ product.Name }}</a></td>
+                            <td>{{ product.ProteinsPer100g }}</td>
+                            <td>{{ product.FatsPer100g }}</td>
+                            <td>{{ product.CarboPer100g }}</td>
+                            <td>{{ product.SugarPer100g }}</td>
+                            <td>{{ product.KCalPer100g }}</td>
+                            <td>{{ product.Category }}</td>
+                            <td>
+                                <a [routerLink]="['/product/delete', product.Id]"><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

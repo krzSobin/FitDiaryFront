@@ -1,15 +1,20 @@
 ﻿<div class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand">ngEvents</a>
+            <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/welcome']">FitDiary</a>
         </div>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
             <ul class="nav navbar-nav">
-                <li><a [routerLink]="['/welcome']">Główna</a></li>
-                <li><a [routerLink]="['product-new']">Dodaj nowy</a></li>
-                <li><a [routerLink]="['/products']">Lista produktów</a></li>
-                <li><a [routerLink]="['/meals']">Lista posiłków</a></li>
+                <li><a [routerLink]="['product-new']">Nowy</a></li>
+                <li><a [routerLink]="['/products']">Produkty</a></li>
+                <li><a [routerLink]="['/meals']">Posiłki</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Events
@@ -22,24 +27,14 @@
                     </ul>
                 </li>
             </ul>
-            <div class="navbar-header navbar-right">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']">Witaj {{auth.currentUser.username}}</a>
-                    </li>
-                    <li>
-                        <a *ngIf="!auth.isAuthenticated()" [routerLink]="['/user/login']">Zaloguj</a>
-                    </li>
-                </ul>
-            </div>
-            <form id="searchForm" class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search Sessions">
-                </div>
-                <button class="btn btn-default">
-                    Search
-                </button>
-            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']"><span class="glyphicon glyphicon-user"></span> {{auth.currentUser.username}}</a>
+                </li>
+                <li>
+                    <a *ngIf="!auth.isAuthenticated()" [routerLink]="['/user/login']"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
