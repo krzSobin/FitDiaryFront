@@ -20,8 +20,8 @@ var ProductService = (function () {
         this._http = _http;
         this._productUrl = 'http://localhost:55986/api/foodproducts/';
     }
-    ProductService.prototype.getProducts = function () {
-        return this._http.get(this._productUrl)
+    ProductService.prototype.getProducts = function (categoryId) {
+        return this._http.get(this._productUrl, categoryId)
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
             .catch(this.handleError);

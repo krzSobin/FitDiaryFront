@@ -10,31 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var product_service_1 = require("./product.service");
-var ProductListComponent = (function () {
-    function ProductListComponent(_productService) {
+var product_service_1 = require("../../../products/product.service");
+var ProductSearcherComponent = (function () {
+    function ProductSearcherComponent(_productService) {
         this._productService = _productService;
-        this.pageTitle = "Product List";
-        this.imageWidth = 50;
-        this.imageMargin = 2;
-        this.showImage = false;
+        this.onAdded = new core_1.EventEmitter();
     }
-    ProductListComponent.prototype.toggleImage = function () {
-        this.showImage = !this.showImage;
+    ProductSearcherComponent.prototype.onSelected = function (product) {
+        console.log(product);
+        this.onAdded.emit(product);
     };
-    ProductListComponent.prototype.ngOnInit = function () {
+    ProductSearcherComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._productService.getProducts(undefined)
             .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
     };
-    ProductListComponent = __decorate([
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ProductSearcherComponent.prototype, "onAdded", void 0);
+    ProductSearcherComponent = __decorate([
         core_1.Component({
-            selector: 'pm-products',
-            templateUrl: 'app/products/product-list.component.html'
+            selector: 'product-searcher',
+            templateUrl: 'app/meals/create/product-searcher/product-searcher.component.html'
         }),
         __metadata("design:paramtypes", [product_service_1.ProductService])
-    ], ProductListComponent);
-    return ProductListComponent;
+    ], ProductSearcherComponent);
+    return ProductSearcherComponent;
 }());
-exports.ProductListComponent = ProductListComponent;
-//# sourceMappingURL=product-list.component.js.map
+exports.ProductSearcherComponent = ProductSearcherComponent;
+//# sourceMappingURL=product-searcher.component.js.map

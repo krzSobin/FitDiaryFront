@@ -12,14 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var meal_service_1 = require("../meal.service");
+var meal_new_dto_1 = require("./meal-new.dto");
 var MealNewComponent = (function () {
     function MealNewComponent(_mealService, router) {
         this._mealService = _mealService;
         this.router = router;
+        this.meal = new meal_new_dto_1.MealNewDto();
     }
     MealNewComponent.prototype.addMeal = function (formValues) {
         var _this = this;
-        console.log("blaaa");
         this._mealService.add(formValues)
             .subscribe(function (mealUrl) { return _this.mealUrl = mealUrl; }, function (error) { return _this.errorMessage = error; });
         this.router.navigate(['meals']);
@@ -27,9 +28,11 @@ var MealNewComponent = (function () {
     MealNewComponent.prototype.cancel = function () {
         this.router.navigate(['meals']);
     };
+    MealNewComponent.prototype.onAdded = function (product) {
+        this.meal.Products.push(product);
+    };
     MealNewComponent = __decorate([
         core_1.Component({
-            //template: `<p>aaaaaa</p>`
             templateUrl: 'app/meals/create/meal-new.component.html'
         }),
         __metadata("design:paramtypes", [meal_service_1.MealService, router_1.Router])

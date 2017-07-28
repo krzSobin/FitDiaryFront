@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">Category:</div>
+                <div class="col-md-4">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table" *ngIf="products && products.length">
+                    <thead>
+                        <tr>
+                            <th>Produkt</th>
+                            <th>B/100g</th>
+                            <th>T/100g</th>
+                            <th>Ww/100g</th>
+                            <th>Cukier</th>
+                            <th>Kcal/100g</th>
+                            <th>Kat.</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <td>{{ product.Name }}</td>
+                            <td>{{ product.ProteinsPer100g }}</td>
+                            <td>{{ product.FatsPer100g }}</td>
+                            <td>{{ product.CarboPer100g }}</td>
+                            <td>{{ product.SugarPer100g }}</td>
+                            <td>{{ product.KCalPer100g }}</td>
+                            <td>{{ product.Category }}</td>
+                            <td>
+                                <product-picker [product]="product"></product-picker>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

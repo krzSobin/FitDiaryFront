@@ -14,8 +14,8 @@ export class ProductService {
 
     constructor(private _http: Http) { }
 
-    getProducts(): Observable<IProduct[]> {
-        return this._http.get(this._productUrl)
+    getProducts(categoryId: number): Observable<IProduct[]> {
+        return this._http.get(this._productUrl, categoryId)
             .map((response: Response) => <IProduct[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);

@@ -2,6 +2,33 @@
     <h1>Dodaj posiłek</h1>
     <hr />
     <div class="col-md-4">
+
+        <div class="table-responsive">
+            <table class="table" *ngIf="meal.Products && meal.Products.length">
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Białko</th>
+                        <th>Tłuszcz</th>
+                        <th>Węglowodany</th>
+                        <th>W tym cukry</th>
+                        <th>Kcal</th>
+                        <th>Ilość (g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of meal.Products">
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.totalProteins }}</td>
+                        <td>{{ product.totalFat }}</td>
+                        <td>{{ product.totalCarbo }}</td>
+                        <td>{{ product.totalSugar }}</td>
+                        <td>{{ product.totalKCal }}</td>
+                        <td>{{ product.amountInGrams }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <form #createMealForm="ngForm" (ngSubmit)="addMeal(createMealForm.value)" autocomplete="off" novalidate>
             <div class="form-group">
                 <label for="Date">Data:</label>
@@ -45,5 +72,8 @@
             </span>
             <button type="button" (click)="cancel()" class="btn btn-default">Anuluj</button>
         </form>
+    </div>
+    <div class="col-md-8">
+        <product-searcher></product-searcher>
     </div>
 </div>
