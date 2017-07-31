@@ -1,4 +1,4 @@
-import { IProduct } from "../../products/index";
+import { ProductInSearcherDto } from "../create/product-searcher/product-in-searcher.dto";
 
 export class ProductInMealDto {
     productId: number;
@@ -12,16 +12,16 @@ export class ProductInMealDto {
     totalSugar: number;
     totalKCal: number;
 
-    constructor(product: IProduct, amountInGrams: number) {
-        this.productId = product.Id;
-        this.amountInGrams = amountInGrams;
-        this.name = product.Name;
-        this.category = product.Category;
+    constructor(product: ProductInSearcherDto) {
+        this.productId = product.id;
+        this.amountInGrams = product.amountInGrams;
+        this.name = product.name;
+        this.category = product.category;
 
-        this.totalProteins = product.ProteinsPer100g * amountInGrams / 100;
-        this.totalFat = product.FatsPer100g * amountInGrams / 100;
-        this.totalCarbo = product.CarboPer100g * amountInGrams / 100;
-        this.totalSugar = product.SugarPer100g * amountInGrams / 100;
-        this.totalKCal = product.KCalPer100g * amountInGrams / 100;
+        this.totalProteins = product.proteinsPer100g * this.amountInGrams / 100;
+        this.totalFat = product.fatsPer100g * this.amountInGrams / 100;
+        this.totalCarbo = product.carboPer100g * this.amountInGrams / 100;
+        this.totalSugar = product.sugarPer100g * this.amountInGrams / 100;
+        this.totalKCal = product.kCalPer100g * this.amountInGrams / 100;
     }
 }

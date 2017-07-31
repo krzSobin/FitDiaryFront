@@ -11,24 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var product_service_1 = require("../../../products/product.service");
+var product_in_meal_dto_1 = require("../../productInMeal/product-in-meal.dto");
+var product_in_searcher_dto_1 = require("./product-in-searcher.dto");
 var ProductSearcherComponent = (function () {
     function ProductSearcherComponent(_productService) {
         this._productService = _productService;
-        this.onAdded = new core_1.EventEmitter();
+        this.onSelected = new core_1.EventEmitter();
     }
-    ProductSearcherComponent.prototype.onSelected = function (product) {
-        console.log(product);
-        this.onAdded.emit(product);
-    };
     ProductSearcherComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._productService.getProducts(undefined)
-            .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (products) { return _this.populateProductsArray(products); }, function (error) { return _this.errorMessage = error; });
+    };
+    ProductSearcherComponent.prototype.selectProduct = function (product) {
+        var selectedProduct = new product_in_meal_dto_1.ProductInMealDto(product);
+        console.log(selectedProduct);
+        this.onSelected.emit(selectedProduct);
+    };
+    ProductSearcherComponent.prototype.populateProductsArray = function (products) {
+        this.products = new Array();
+        for (var _i = 0, products_1 = products; _i < products_1.length; _i++) {
+            var product = products_1[_i];
+            this.products.push(new product_in_searcher_dto_1.ProductInSearcherDto(product));
+        }
     };
     __decorate([
         core_1.Output(),
         __metadata("design:type", Object)
-    ], ProductSearcherComponent.prototype, "onAdded", void 0);
+    ], ProductSearcherComponent.prototype, "onSelected", void 0);
     ProductSearcherComponent = __decorate([
         core_1.Component({
             selector: 'product-searcher',

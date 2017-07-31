@@ -1,43 +1,40 @@
-<div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-2">Category:</div>
-                <div class="col-md-4">
-                    <input type="text" />
-                </div>
-            </div>
-            <div class="table-responsive">
-                <table class="table" *ngIf="products && products.length">
-                    <thead>
-                        <tr>
-                            <th>Produkt</th>
-                            <th>B/100g</th>
-                            <th>T/100g</th>
-                            <th>Ww/100g</th>
-                            <th>Cukier</th>
-                            <th>Kcal/100g</th>
-                            <th>Kat.</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let product of products">
-                            <td>{{ product.Name }}</td>
-                            <td>{{ product.ProteinsPer100g }}</td>
-                            <td>{{ product.FatsPer100g }}</td>
-                            <td>{{ product.CarboPer100g }}</td>
-                            <td>{{ product.SugarPer100g }}</td>
-                            <td>{{ product.KCalPer100g }}</td>
-                            <td>{{ product.Category }}</td>
-                            <td>
-                                <product-picker [product]="product"></product-picker>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-2">Category:</div>
+    <div class="col-md-4">
+        <input type="text" />
     </div>
+</div>
+<div class="table-responsive">
+    <table class="table" *ngIf="products && products.length">
+        <thead>
+            <tr>
+                <th class="min">Produkt</th>
+                <th class="min">B/100g</th>
+                <th class="min">T/100g</th>
+                <th class="min">Ww/100g</th>
+                <th class="min">Cukier</th>
+                <th class="min">Kcal/100g</th>
+                <th class="min">Kat.</th>
+                <th class="min">Ile (g)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td class="min">{{ product.name }}</td>
+                <td class="min">{{ product.proteinsPer100g }}</td>
+                <td class="min">{{ product.fatsPer100g }}</td>
+                <td class="min">{{ product.carboPer100g }}</td>
+                <td class="min">{{ product.sugarPer100g }}</td>
+                <td class="min">{{ product.kCalPer100g }}</td>
+                <td class="min">{{ product.category }}</td>
+                <td class="min">
+                    <input class="form-control" [(ngModel)]="product.amountInGrams" type="number" name="amountInGrams" id="amountInGrams" required>
+                </td>
+                <td class="min">
+                    <button type="button" class="btn btn-default" [disabled]="!product.amountInGrams" (click)="selectProduct(product)"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

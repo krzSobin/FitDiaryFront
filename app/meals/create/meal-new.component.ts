@@ -13,9 +13,11 @@ export class MealNewComponent {
     meal: MealNewDto;
     mealUrl: URL;
     errorMessage: string;
+    productSearcherVisible: boolean;
 
     constructor(private _mealService: MealService, private router: Router) {
         this.meal = new MealNewDto();
+        this.productSearcherVisible = false;
     }
 
     addMeal(formValues: MealNewDto) {
@@ -29,7 +31,15 @@ export class MealNewComponent {
         this.router.navigate(['meals']);
     }
 
-    onAdded(product: ProductInMealDto) {
+    showProductSearcher(): void {
+        this.productSearcherVisible = true;
+    }
+
+    hideProductSearcher(): void {
+        this.productSearcherVisible = false;
+    }
+
+    onSelected(product: ProductInMealDto): void {
         this.meal.Products.push(product);
     }
 }

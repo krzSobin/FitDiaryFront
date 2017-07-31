@@ -1,79 +1,82 @@
 ﻿<div class="container">
     <h1>Dodaj posiłek</h1>
     <hr />
-    <div class="col-md-4">
+    <div class="col-md-2">
 
-        <div class="table-responsive">
-            <table class="table" *ngIf="meal.Products && meal.Products.length">
-                <thead>
-                    <tr>
-                        <th>Produkt</th>
-                        <th>Białko</th>
-                        <th>Tłuszcz</th>
-                        <th>Węglowodany</th>
-                        <th>W tym cukry</th>
-                        <th>Kcal</th>
-                        <th>Ilość (g)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let product of meal.Products">
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.totalProteins }}</td>
-                        <td>{{ product.totalFat }}</td>
-                        <td>{{ product.totalCarbo }}</td>
-                        <td>{{ product.totalSugar }}</td>
-                        <td>{{ product.totalKCal }}</td>
-                        <td>{{ product.amountInGrams }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    </div>
+    <div class="col-md-8">
         <form #createMealForm="ngForm" (ngSubmit)="addMeal(createMealForm.value)" autocomplete="off" novalidate>
             <div class="form-group">
                 <label for="Date">Data:</label>
-                <em *ngIf="createMealForm.controls.Date?.invalid && createMealForm.controls.Date?.touched || mouseoverLogin">Wymagane</em>
-                <input (ngModel)="Date" name="Date" required id="Date" type="text" class="form-control"
-                       placeholder="Data..." />
+                <em *ngIf="createMealForm.controls.Date?.invalid && createMealForm.controls.Date?.touched || mouseoverSave">Wymagane</em>
+                <input (ngModel)="meal.name" name="name" id="name" type="text" class="form-control" placeholder="Data" required />
             </div>
             <div class="form-group">
-                <label for="TotalKcal">kalorie</label>
-                <em *ngIf="createMealForm.controls.TotalKcal?.invalid && createMealForm.controls.TotalKcal?.touched || mouseoverLogin">Wymagane</em>
-                <input (ngModel)="TotalKcal" name="TotalKcal" required id="TotalKcal" type="text" class="form-control"
-                       placeholder="kalorie" />
-            </div>
-            <div class="form-group">
-                <label for="TotalProtein">białko</label>
-                <em *ngIf="createMealForm.controls.TotalProtein?.invalid && createMealForm.controls.TotalProtein?.touched || mouseoverLogin">Wymagane</em>
-                <input (ngModel)="TotalProtein" name="TotalProtein" required id="TotalProtein" type="text" class="form-control"
-                       placeholder="białko" />
-            </div>
-            <div class="form-group">
-                <label for="TotalCarb">Węglowodany</label>
-                <em *ngIf="createMealForm.controls.TotalCarb?.invalid && createMealForm.controls.TotalCarb?.touched || mouseoverLogin">Wymagane</em>
+                <label for="name">Nazwa</label>
+                <em *ngIf="createMealForm.controls.name?.invalid && createMealForm.controls.name?.touched || mouseoverSave">Wymagane</em>
                 <input (ngModel)="TotalCarb" name="TotalCarb" required id="TotalCarb" type="text" class="form-control"
                        placeholder="Węglowodany" />
             </div>
             <div class="form-group">
-                <label for="TotalSugar">W tym cukier</label>
-                <em *ngIf="createMealForm.controls.TotalSugar?.invalid && createMealForm.controls.TotalSugar?.touched || mouseoverLogin">Wymagane</em>
-                <input (ngModel)="TotalSugar" name="TotalSugar" required id="TotalSugar" type="text" class="form-control"
-                       placeholder="W tym cukier..." />
+                <label>Produkty:</label>
+                <div class="table-responsive">
+                    <table class="table" *ngIf="meal.Products && meal.Products.length">
+                        <thead>
+                            <tr>
+                                <th>Produkt</th>
+                                <th>B/Ww/T</th>
+                                <th>cukier</th>
+                                <th>Kcal</th>
+                                <th>Ile (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of meal.Products">
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.totalProteins }} <b>/</b> {{ product.totalCarbo }} <b>/</b> {{ product.totalFat }}</td>
+                                <td>{{ product.totalSugar }}</td>
+                                <td>{{ product.totalKCal }}</td>
+                                <td>{{ product.amountInGrams }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-default" (click)="showProductSearcher()" [hidden]="productSearcherVisible">Dodaj</button>
             </div>
             <div class="form-group">
-                <label for="TotalFat">Tłuszcz</label>
-                <em *ngIf="createMealForm.controls.TotalFat?.invalid && createMealForm.controls.TotalFat?.touched || mouseoverLogin">Required</em>
-                <input (ngModel)="TotalFat" name="TotalFat" required id="TotalFat" type="text" class="form-control"
-                       placeholder="tłuszcz" />
+                <product-searcher *ngIf="productSearcherVisible" (onSelected)="onSelected($event)"></product-searcher>
+                <button type="button" class="btn btn-default" (click)="hideProductSearcher()" [hidden]="!productSearcherVisible">Koniec</button>
             </div>
-
-            <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
+            <div class="form-group">
+                <h4>Podsumowanie</h4>
+                <div class="col-md-5ths">
+                    <h5>Kalorie</h5>
+                    <p>{{ meal.getTotalKCal() }}</p>
+                </div>
+                <div class="col-md-5ths">
+                    <h5>Tłuszcz</h5>
+                    <p>{{ meal.getTotalFat() }}</p>
+                </div>
+                <div class="col-md-5ths">
+                    <h5>Białko</h5>
+                    <p>{{ meal.getTotalProtein() }}</p>
+                </div>
+                <div class="col-md-5ths">
+                    <h5>Węglowodany</h5>
+                    <p>{{ meal.getTotalCarbo() }}</p>
+                </div>
+                <div class="col-md-5ths">
+                    <h5>Cukier</h5>
+                    <p>{{ meal.getTotalSugar() }}</p>
+                </div>
+            </div>
+            <span (mouseenter)="mouseoverSave=true" (mouseleave)="mouseoverSave=false">
                 <button type="submit" [disabled]="createMealForm.invalid" class="btn btn-primary">Dodaj</button>
             </span>
             <button type="button" (click)="cancel()" class="btn btn-default">Anuluj</button>
         </form>
     </div>
-    <div class="col-md-8">
-        <product-searcher></product-searcher>
+    <div class="col-md-2">
+
     </div>
 </div>

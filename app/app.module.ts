@@ -13,7 +13,6 @@ import {
 import { AppComponent } from './app.component';
 import { MealListComponent } from './meals/meal-list.component';
 import { MealNewComponent } from './meals/create/meal-new.component';
-import { ProductPickerComponent } from './meals/create/product-searcher/product-picker/product-picker.component';
 import { ProductSearcherComponent } from './meals/create/product-searcher/product-searcher.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { WelcomeComponent } from './home/welcome.component';
@@ -34,7 +33,6 @@ import { AuthService } from './user/auth.service';
         ProductRemoverComponent,
         MealNewComponent,
         MealListComponent,
-        ProductPickerComponent,
         ProductSearcherComponent,
         NavBarComponent,
         WelcomeComponent],

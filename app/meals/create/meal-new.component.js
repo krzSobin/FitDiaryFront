@@ -18,6 +18,7 @@ var MealNewComponent = (function () {
         this._mealService = _mealService;
         this.router = router;
         this.meal = new meal_new_dto_1.MealNewDto();
+        this.productSearcherVisible = false;
     }
     MealNewComponent.prototype.addMeal = function (formValues) {
         var _this = this;
@@ -28,7 +29,13 @@ var MealNewComponent = (function () {
     MealNewComponent.prototype.cancel = function () {
         this.router.navigate(['meals']);
     };
-    MealNewComponent.prototype.onAdded = function (product) {
+    MealNewComponent.prototype.showProductSearcher = function () {
+        this.productSearcherVisible = true;
+    };
+    MealNewComponent.prototype.hideProductSearcher = function () {
+        this.productSearcherVisible = false;
+    };
+    MealNewComponent.prototype.onSelected = function (product) {
         this.meal.Products.push(product);
     };
     MealNewComponent = __decorate([

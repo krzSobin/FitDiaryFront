@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { IMealNewDto } from "./create/meal-new.dto";
+import { MealNewDto } from "./create/meal-new.dto";
 
 @Injectable()
 export class MealService {
@@ -22,7 +22,7 @@ export class MealService {
             .catch(this.handleError);
     }
 
-    add(meal: IMealNewDto): Observable<URL> {
+    add(meal: MealNewDto): Observable<URL> {
         let headers = new Headers({
             'Content-Type': 'application/json'
         });

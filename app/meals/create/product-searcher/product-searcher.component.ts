@@ -3,31 +3,41 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductService } from "../../../products/product.service";
 import { IProduct } from "../../../products/product";
 import { ProductInMealDto } from "../../productInMeal/product-in-meal.dto";
+import { ProductInSearcherDto } from "./product-in-searcher.dto";
 
 @Component({
     selector: 'product-searcher',
     templateUrl: 'app/meals/create/product-searcher/product-searcher.component.html'
 })
 export class ProductSearcherComponent implements OnInit {
-    
-    products: IProduct[];
+
+    products: ProductInSearcherDto[];
 
     errorMessage: string;
-    @Output() onAdded = new EventEmitter<ProductInMealDto>();
+    @Output() onSelected = new EventEmitter<ProductInMealDto>();
 
     constructor(private _productService: ProductService) {
 
     }
 
-    onSelected(product: ProductInMealDto) {
-        console.log(product);
-        this.onAdded.emit(product);
-    }
-
     ngOnInit(): void {
         this._productService.getProducts(undefined)
-            .subscribe(products => this.products = products,
+            .subscribe(products => this.populateProductsArray(products),
             error => this.errorMessage = <any>error);
 
+    }
+
+    selectProduct(product: ProductInSearcherDto): void {
+        let selectedProduct = new ProductInMealDto(product);
+        console.log(selectedProduct);
+        this.onSelected.emit(selectedProduct);
+    }
+
+    populateProductsArray(products: IProduct[]): void {
+        this.products = new Array<ProductInSearcherDto>();
+
+        for (let product of products) {
+            this.products.push(new ProductInSearcherDto(product));
+        }
     }
 }

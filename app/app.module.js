@@ -15,7 +15,6 @@ var index_1 = require("./products/index");
 var app_component_1 = require("./app.component");
 var meal_list_component_1 = require("./meals/meal-list.component");
 var meal_new_component_1 = require("./meals/create/meal-new.component");
-var product_picker_component_1 = require("./meals/create/product-searcher/product-picker/product-picker.component");
 var product_searcher_component_1 = require("./meals/create/product-searcher/product-searcher.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var welcome_component_1 = require("./home/welcome.component");
@@ -40,7 +39,6 @@ var AppModule = (function () {
                 index_1.ProductRemoverComponent,
                 meal_new_component_1.MealNewComponent,
                 meal_list_component_1.MealListComponent,
-                product_picker_component_1.ProductPickerComponent,
                 product_searcher_component_1.ProductSearcherComponent,
                 navbar_component_1.NavBarComponent,
                 welcome_component_1.WelcomeComponent
