@@ -26,8 +26,13 @@ export class MealService {
         let headers = new Headers({
             'Content-Type': 'application/json'
         });
-        let options = new RequestOptions({ headers: headers });
+        console.log(meal.Date);
+        let token = this.getToken();
+        if (token != null) {
+            headers.append('Authorization',token);
+        }
 
+        let options = new RequestOptions({ headers: headers });
         return this._http.post(this._mealUrl, meal, options)
             .map((response: Response) => <URL>response.json())
             .do(data => console.log('Return URL: ' + JSON.stringify(data)))
@@ -37,5 +42,16 @@ export class MealService {
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
+    }
+
+    private getToken(): string {
+        // create authorization header with jwt token
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.token) {
+            let result = 'Bearer ' + currentUser.token;
+            return result;
+        }
+
+        return null;
     }
 }

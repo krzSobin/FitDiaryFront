@@ -5,17 +5,16 @@
 
     </div>
     <div class="col-md-8">
-        <form #createMealForm="ngForm" (ngSubmit)="addMeal(createMealForm.value)" autocomplete="off" novalidate>
+        <form #createMealForm="ngForm" (ngSubmit)="addMeal()" autocomplete="off" novalidate>
             <div class="form-group">
-                <label for="Date">Data:</label>
-                <em *ngIf="createMealForm.controls.Date?.invalid && createMealForm.controls.Date?.touched || mouseoverSave">Wymagane</em>
-                <input (ngModel)="meal.name" name="name" id="name" type="text" class="form-control" placeholder="Data" required />
+                <label for="date">Data:</label>
+                <em *ngIf="createMealForm.controls.date?.invalid && (createMealForm.controls.date?.touched || mouseoverSave)">Wymagane</em>
+                <input [ngModel]="meal.date | date:'yyyy-MM-dd'" (ngModelChange)="meal.date = $event" type="date" name="date" id="date"  class="form-control" required/>
             </div>
             <div class="form-group">
                 <label for="name">Nazwa</label>
-                <em *ngIf="createMealForm.controls.name?.invalid && createMealForm.controls.name?.touched || mouseoverSave">Wymagane</em>
-                <input (ngModel)="TotalCarb" name="TotalCarb" required id="TotalCarb" type="text" class="form-control"
-                       placeholder="Węglowodany" />
+                <em *ngIf="createMealForm.controls.name?.invalid && (createMealForm.controls.name?.touched || mouseoverSave)">Wymagane</em>
+                <input [(ngModel)]="meal.name" name="name" id="name" type="text" class="form-control" required placeholder="Posiłek" />
             </div>
             <div class="form-group">
                 <label>Produkty:</label>

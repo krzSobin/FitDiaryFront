@@ -20,9 +20,9 @@ var MealNewComponent = (function () {
         this.meal = new meal_new_dto_1.MealNewDto();
         this.productSearcherVisible = false;
     }
-    MealNewComponent.prototype.addMeal = function (formValues) {
+    MealNewComponent.prototype.addMeal = function () {
         var _this = this;
-        this._mealService.add(formValues)
+        this._mealService.add(this.meal)
             .subscribe(function (mealUrl) { return _this.mealUrl = mealUrl; }, function (error) { return _this.errorMessage = error; });
         this.router.navigate(['meals']);
     };

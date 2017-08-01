@@ -12,7 +12,7 @@
 
         <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
             <ul class="nav navbar-nav">
-                <li><a [routerLink]="['product-new']">Nowy</a></li>
+                <li><a [routerLink]="['/product-new']">Nowy</a></li>
                 <li><a [routerLink]="['/products']">Produkty</a></li>
                 <li><a [routerLink]="['/meals']">Posiłki</a></li>
                 <li class="dropdown">
@@ -29,7 +29,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']"><span class="glyphicon glyphicon-user"></span> {{auth.currentUser.username}}</a>
+                    <a *ngIf="auth.isAuthenticated()" [routerLink]="['/user/profile']"><span class="glyphicon glyphicon-user"></span> {{auth.currentUser.username}}</a>
                 </li>
                 <li>
                     <a *ngIf="!auth.isAuthenticated()" [routerLink]="['/user/login']"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a>

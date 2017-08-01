@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var auth_service_1 = require("./auth.service");
+var auth_service_1 = require("../auth.service");
 var router_1 = require("@angular/router");
 var LoginComponent = (function () {
     function LoginComponent(authService, router) {
@@ -25,7 +25,7 @@ var LoginComponent = (function () {
                 _this.loginInvalid = true;
             }
             else {
-                _this.router.navigate(['products']);
+                _this.router.navigate(['welcome']);
             }
         });
     };
@@ -34,7 +34,7 @@ var LoginComponent = (function () {
     };
     LoginComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/user/login.component.html',
+            templateUrl: 'app/user/login/login.component.html',
             styles: ["\n        em {float:right; color:#E05C65; padding-left:10px; }\n    "]
         }),
         __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])

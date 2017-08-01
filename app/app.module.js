@@ -20,6 +20,7 @@ var navbar_component_1 = require("./nav/navbar.component");
 var welcome_component_1 = require("./home/welcome.component");
 var routes_1 = require("./routes");
 var auth_service_1 = require("./user/auth.service");
+var user_service_1 = require("./user/user.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -44,7 +45,8 @@ var AppModule = (function () {
                 welcome_component_1.WelcomeComponent
             ],
             providers: [
-                auth_service_1.AuthService
+                auth_service_1.AuthService,
+                user_service_1.UserService
             ],
             bootstrap: [app_component_1.AppComponent]
         })

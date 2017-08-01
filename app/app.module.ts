@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
+import { UserService } from './user/user.service';
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import { AuthService } from './user/auth.service';
         NavBarComponent,
         WelcomeComponent],
     providers: [
-        AuthService],
+        AuthService,
+        UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

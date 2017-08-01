@@ -43,9 +43,13 @@ var AuthService = (function () {
             return Observable_1.Observable.of(false);
         });
     };
+    AuthService.prototype.logoutUser = function () {
+        localStorage.removeItem('currentUser');
+        console.log(this.token);
+    };
     AuthService.prototype.isAuthenticated = function () {
         console.log(JSON.parse(localStorage.getItem('currentUser')));
-        console.log(!this.token);
+        console.log("blaaa " + !this.token);
         return !!this.token;
     };
     AuthService = __decorate([

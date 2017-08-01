@@ -20,8 +20,8 @@ export class MealNewComponent {
         this.productSearcherVisible = false;
     }
 
-    addMeal(formValues: MealNewDto) {
-        this._mealService.add(formValues)
+    addMeal() {
+        this._mealService.add(this.meal)
             .subscribe(mealUrl => this.mealUrl = mealUrl,
             error => this.errorMessage = <any>error);
         this.router.navigate(['meals']);

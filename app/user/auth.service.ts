@@ -43,9 +43,14 @@ export class AuthService {
             })
     }
 
+    logoutUser() {
+        localStorage.removeItem('currentUser');
+        console.log(this.token);
+    }
+
     isAuthenticated() {
         console.log(JSON.parse(localStorage.getItem('currentUser')));
-        console.log(!this.token);
+        console.log("blaaa " + !this.token);
         return !!this.token;
     }
 }

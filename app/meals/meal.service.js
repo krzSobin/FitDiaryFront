@@ -30,6 +30,11 @@ var MealService = (function () {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
+        console.log(meal.Date);
+        var token = this.getToken();
+        if (token != null) {
+            headers.append('Authorization', token);
+        }
         var options = new http_1.RequestOptions({ headers: headers });
         return this._http.post(this._mealUrl, meal, options)
             .map(function (response) { return response.json(); })
@@ -39,6 +44,15 @@ var MealService = (function () {
     MealService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
+    };
+    MealService.prototype.getToken = function () {
+        // create authorization header with jwt token
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.token) {
+            var result = 'Bearer ' + currentUser.token;
+            return result;
+        }
+        return null;
     };
     MealService = __decorate([
         core_1.Injectable(),

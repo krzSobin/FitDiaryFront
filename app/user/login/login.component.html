@@ -4,13 +4,13 @@
     <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off" novalidate>
         <div class="form-group">
             <label for="userName">User Name:</label>
-            <em *ngIf="loginForm.controls.userName?.invalid && loginForm.controls.userName?.touched || mouseoverLogin">Required</em>
+            <em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)">Required</em>
             <input (ngModel)="userName" name="userName" required id="userName" type="text" class="form-control"
                    placeholder="User Name..." />
         </div>
         <div class="form-group">
             <label for="userName">Password:</label>
-            <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched || mouseoverLogin">Required</em>
+            <em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched || mouseoverLogin)">Required</em>
             <input (ngModel)="password" name="password" required id="password" type="password" class="form-control"
                    placeholder="Password..." />
         </div>
@@ -20,6 +20,7 @@
         </span>
         <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
     </form>
+    <a [routerLink]="['/user/register']">Zarejestruj siê</a>
     <br />
     <div *ngIf="loginInvalid" class="alert alert-danger">Has³o lub login niepoprawne</div>
 </div>

@@ -3,7 +3,6 @@ import { ProductInMealDto } from "../productInMeal/product-in-meal.dto";
 export class MealNewDto {
     Date: Date;
     name: string;
-    UserId: number;
     Products: Array<ProductInMealDto>;
 
     constructor() {
