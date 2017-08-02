@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var MealNewDto = (function () {
     function MealNewDto() {
         this.Products = new Array();
+        this.Date = new Date();
     }
     MealNewDto.prototype.getTotalProtein = function () {
         var result = 0;

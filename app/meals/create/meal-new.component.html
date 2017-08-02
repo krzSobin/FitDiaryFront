@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label for="date">Data:</label>
                 <em *ngIf="createMealForm.controls.date?.invalid && (createMealForm.controls.date?.touched || mouseoverSave)">Wymagane</em>
-                <input [ngModel]="meal.date | date:'yyyy-MM-dd'" (ngModelChange)="meal.date = $event" type="date" name="date" id="date"  class="form-control" required/>
+                <my-date-picker name="date" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" locale="pl" required></my-date-picker>
             </div>
             <div class="form-group">
                 <label for="name">Nazwa</label>

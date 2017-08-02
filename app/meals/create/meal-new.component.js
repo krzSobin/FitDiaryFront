@@ -17,11 +17,17 @@ var MealNewComponent = (function () {
     function MealNewComponent(_mealService, router) {
         this._mealService = _mealService;
         this.router = router;
+        this.myDatePickerOptions = {
+            // other options...
+            dateFormat: 'yyyy-MM-dd',
+            inline: true
+        };
         this.meal = new meal_new_dto_1.MealNewDto();
         this.productSearcherVisible = false;
     }
     MealNewComponent.prototype.addMeal = function () {
         var _this = this;
+        console.log(this.meal);
         this._mealService.add(this.meal)
             .subscribe(function (mealUrl) { return _this.mealUrl = mealUrl; }, function (error) { return _this.errorMessage = error; });
         this.router.navigate(['meals']);
@@ -37,6 +43,9 @@ var MealNewComponent = (function () {
     };
     MealNewComponent.prototype.onSelected = function (product) {
         this.meal.Products.push(product);
+    };
+    MealNewComponent.prototype.onDateChanged = function (event) {
+        this.meal.Date = new Date(event.date.year, event.date.month - 1, event.date.day);
     };
     MealNewComponent = __decorate([
         core_1.Component({

@@ -1,12 +1,13 @@
 import { ProductInMealDto } from "../productInMeal/product-in-meal.dto";
 
 export class MealNewDto {
-    Date: Date;
+    Date: Object;
     name: string;
     Products: Array<ProductInMealDto>;
 
     constructor() {
         this.Products = new Array<ProductInMealDto>();
+        this.Date = new Date();
     }
 
     getTotalProtein() {

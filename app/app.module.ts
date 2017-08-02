@@ -19,11 +19,13 @@ import { WelcomeComponent } from './home/welcome.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 import { UserService } from './user/user.service';
+import { MyDatePickerModule } from 'mydatepicker';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        MyDatePickerModule,
         HttpModule,
         RouterModule.forRoot(appRoutes, { useHash: true })],
     declarations: [
