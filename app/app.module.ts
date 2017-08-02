@@ -9,11 +9,15 @@ import {
     ProductDetailComponent,
     NewProductComponent,
     ProductRemoverComponent
-} from './products/index'
+} from './products/index';
+
+import {
+    MealListComponent,
+    MealNewComponent,
+    ProductSearcherComponent
+} from "./meals/index";
+
 import { AppComponent } from './app.component';
-import { MealListComponent } from './meals/meal-list.component';
-import { MealNewComponent } from './meals/create/meal-new.component';
-import { ProductSearcherComponent } from './meals/create/product-searcher/product-searcher.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { appRoutes } from './routes';

@@ -12,10 +12,8 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 var index_1 = require("./products/index");
+var index_2 = require("./meals/index");
 var app_component_1 = require("./app.component");
-var meal_list_component_1 = require("./meals/meal-list.component");
-var meal_new_component_1 = require("./meals/create/meal-new.component");
-var product_searcher_component_1 = require("./meals/create/product-searcher/product-searcher.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var welcome_component_1 = require("./home/welcome.component");
 var routes_1 = require("./routes");
@@ -42,9 +40,9 @@ var AppModule = (function () {
                 index_1.ProductDetailComponent,
                 index_1.NewProductComponent,
                 index_1.ProductRemoverComponent,
-                meal_new_component_1.MealNewComponent,
-                meal_list_component_1.MealListComponent,
-                product_searcher_component_1.ProductSearcherComponent,
+                index_2.MealNewComponent,
+                index_2.MealListComponent,
+                index_2.ProductSearcherComponent,
                 navbar_component_1.NavBarComponent,
                 welcome_component_1.WelcomeComponent
             ],

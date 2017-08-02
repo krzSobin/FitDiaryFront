@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
-var meal_service_1 = require("./meal.service");
+var index_1 = require("../index");
 var MealListComponent = (function () {
     function MealListComponent(_mealService, router) {
         this._mealService = _mealService;
@@ -32,9 +32,9 @@ var MealListComponent = (function () {
     MealListComponent = __decorate([
         core_1.Component({
             selector: 'pm-meals',
-            templateUrl: 'app/meals/meal-list.component.html'
+            templateUrl: 'app/meals/list/meal-list.component.html'
         }),
-        __metadata("design:paramtypes", [meal_service_1.MealService, router_1.Router])
+        __metadata("design:paramtypes", [index_1.MealService, router_1.Router])
     ], MealListComponent);
     return MealListComponent;
 }());

@@ -1,11 +1,10 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { IMeal } from './meal';
-import { MealService } from './meal.service';
+import { IMeal, MealService } from "../index";
 
 @Component({
     selector: 'pm-meals',
-    templateUrl: 'app/meals/meal-list.component.html'
+    templateUrl: 'app/meals/list/meal-list.component.html'
 })
 
 export class MealListComponent implements OnInit {

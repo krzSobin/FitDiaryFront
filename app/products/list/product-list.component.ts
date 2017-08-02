@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { IProduct } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
     selector: 'pm-products',
-    templateUrl: 'app/products/product-list.component.html'
+    templateUrl: 'app/products/list/product-list.component.html'
 })
 export class ProductListComponent implements OnInit {
 

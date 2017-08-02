@@ -14,9 +14,8 @@
             <ul class="nav navbar-nav">
                 <li><a [routerLink]="['/product-new']">Nowy</a></li>
                 <li><a [routerLink]="['/products']">Produkty</a></li>
-                <li><a [routerLink]="['/meals']">Posiłki</a></li>
                 <li dropdown>
-                    <a href dropdownToggle (click)="false">Dieta</a>
+                    <a href dropdownToggle (click)="false">Dieta <span class="caret"></span></a>
                     <ul *dropdownMenu class="dropdown-menu" role="menu">
                         <li role="menuitem"><a [routerLink]="['/meals']" class="dropdown-item" href="#">Dziennik</a></li>
                         <li class="divider dropdown-divider"></li>

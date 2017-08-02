@@ -1,12 +1,12 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { IProduct } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
     selector: 'pm-new-product',
-    templateUrl: 'app/products/new-product.component.html'
+    templateUrl: 'app/products/create/new-product.component.html'
 })
 
 export class NewProductComponent {
