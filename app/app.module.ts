@@ -20,6 +20,8 @@ import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 import { UserService } from './user/user.service';
 import { MyDatePickerModule } from 'mydatepicker';
+import { BsDropdownModule } from 'ngx-bootstrap';
+
 
 @NgModule({
     imports: [
@@ -27,6 +29,7 @@ import { MyDatePickerModule } from 'mydatepicker';
         FormsModule,
         MyDatePickerModule,
         HttpModule,
+        BsDropdownModule.forRoot(),
         RouterModule.forRoot(appRoutes, { useHash: true })],
     declarations: [
         AppComponent,

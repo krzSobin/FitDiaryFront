@@ -15,15 +15,14 @@
                 <li><a [routerLink]="['/product-new']">Nowy</a></li>
                 <li><a [routerLink]="['/products']">Produkty</a></li>
                 <li><a [routerLink]="['/meals']">Posiłki</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Events
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">Angular Connect</a>
-                        </li>
+                <li dropdown>
+                    <a href dropdownToggle (click)="false">Dieta</a>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                        <li role="menuitem"><a [routerLink]="['/meals']" class="dropdown-item" href="#">Dziennik</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a [routerLink]="['/products']" class="dropdown-item" href="#">Produkty</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Porady</a></li>
                     </ul>
                 </li>
             </ul>

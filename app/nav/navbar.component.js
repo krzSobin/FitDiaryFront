@@ -15,10 +15,20 @@ var NavBarComponent = (function () {
     function NavBarComponent(auth) {
         this.auth = auth;
         this.isIn = false; // store state
+        this.dietItems = ['Dziennik', 'Produkty', 'Porady'];
     }
     NavBarComponent.prototype.toggleState = function () {
         var bool = this.isIn;
         this.isIn = bool === false ? true : false;
+    };
+    NavBarComponent.prototype.onHidden = function () {
+        console.log('Dropdown is hidden');
+    };
+    NavBarComponent.prototype.onShown = function () {
+        console.log('Dropdown is shown');
+    };
+    NavBarComponent.prototype.isOpenChange = function () {
+        console.log('Dropdown state is changed');
     };
     NavBarComponent = __decorate([
         core_1.Component({

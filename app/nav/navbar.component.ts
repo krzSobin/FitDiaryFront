@@ -19,4 +19,16 @@ export class NavBarComponent {
         let bool = this.isIn;
         this.isIn = bool === false ? true : false;
     }
+
+    public dietItems: string[] = ['Dziennik', 'Produkty', 'Porady'];
+
+    public onHidden(): void {
+        console.log('Dropdown is hidden');
+    }
+    public onShown(): void {
+        console.log('Dropdown is shown');
+    }
+    public isOpenChange(): void {
+        console.log('Dropdown state is changed');
+    }
 }

@@ -22,6 +22,7 @@ var routes_1 = require("./routes");
 var auth_service_1 = require("./user/auth.service");
 var user_service_1 = require("./user/user.service");
 var mydatepicker_1 = require("mydatepicker");
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,6 +33,7 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 mydatepicker_1.MyDatePickerModule,
                 http_1.HttpModule,
+                ngx_bootstrap_1.BsDropdownModule.forRoot(),
                 router_1.RouterModule.forRoot(routes_1.appRoutes, { useHash: true })
             ],
             declarations: [
