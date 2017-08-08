@@ -8,7 +8,8 @@ import {
     ProductListComponent,
     ProductDetailComponent,
     NewProductComponent,
-    ProductRemoverComponent
+    ProductRemoverComponent,
+    CategoryListComponent
 } from './products/index';
 
 import {
@@ -40,6 +41,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
         ProductListComponent,
         ProductDetailComponent,
         NewProductComponent,
+        CategoryListComponent,
         ProductRemoverComponent,
         MealNewComponent,
         MealListComponent,

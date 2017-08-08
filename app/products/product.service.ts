@@ -28,7 +28,7 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    addProduct(product: IProduct): Observable<URL> {
+    addProduct(product: NewProductDto): Observable<URL> {
         let headers = new Headers({
             'Content-Type':'application/json'
         });

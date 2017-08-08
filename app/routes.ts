@@ -8,7 +8,7 @@ import { MealListComponent, MealNewComponent } from "./meals/index";
 
 export const appRoutes = [
     { path: 'products', component: ProductListComponent },
-    { path: 'product-new', component: NewProductComponent },
+    { path: 'product/new', component: NewProductComponent },
     { path: 'product/:id', component: ProductDetailComponent },
     { path: 'product/delete/:id', component: ProductRemoverComponent },
     { path: 'meals', component: MealListComponent },

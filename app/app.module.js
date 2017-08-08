@@ -39,6 +39,7 @@ var AppModule = (function () {
                 index_1.ProductListComponent,
                 index_1.ProductDetailComponent,
                 index_1.NewProductComponent,
+                index_1.CategoryListComponent,
                 index_1.ProductRemoverComponent,
                 index_2.MealNewComponent,
                 index_2.MealListComponent,

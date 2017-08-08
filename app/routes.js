@@ -7,7 +7,7 @@ var index_1 = require("./products/index");
 var index_2 = require("./meals/index");
 exports.appRoutes = [
     { path: 'products', component: index_1.ProductListComponent },
-    { path: 'product-new', component: index_1.NewProductComponent },
+    { path: 'product/new', component: index_1.NewProductComponent },
     { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent },
     { path: 'product/delete/:id', component: product_remover_component_1.ProductRemoverComponent },
     { path: 'meals', component: index_2.MealListComponent },

@@ -1,0 +1,8 @@
+<div *ngIf="categories && categories.length">
+    <div class="list-group" >
+        <a *ngFor="let category of categories" (click)="selectCategory(category)" class="list-group-item">{{category.Name}}</a>
+    </div>
+</div>
+<div *ngIf="!categories || !categories.length">
+    <p>Chwilowy b³¹d :( Spróbuj ponownie za chwilê</p>
+</div>

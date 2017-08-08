@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var product_service_1 = require("./products/product.service");
 var meal_service_1 = require("./meals/meal.service");
+var category_service_1 = require("./products/categories/category.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.pageTitle = 'Fit Diary';
@@ -19,7 +20,8 @@ var AppComponent = (function () {
             template: "\n        <nav-bar></nav-bar>\n        <router-outlet></router-outlet>\n    ",
             providers: [
                 product_service_1.ProductService,
-                meal_service_1.MealService
+                meal_service_1.MealService,
+                category_service_1.CategoryService
             ]
         })
     ], AppComponent);
