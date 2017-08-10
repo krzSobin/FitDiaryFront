@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var product_service_1 = require("./product.service");
+var product_service_1 = require("../product.service");
 var ProductRemoverComponent = (function () {
     function ProductRemoverComponent(_productService, _route, _router) {
         this._productService = _productService;
@@ -24,10 +24,16 @@ var ProductRemoverComponent = (function () {
         this._productService.getProduct(this.productId)
             .subscribe(function (product) { return _this.product = product; }, function (error) { return _this.errorMessage = error; });
     };
+    ProductRemoverComponent.prototype.deleteProduct = function (id) {
+        var _this = this;
+        this._productService.deleteProduct(id)
+            .subscribe(function (product) { return _this.product = product; }, function (error) { return _this.errorMessage = error; });
+        this._router.navigate(['products']);
+    };
     ProductRemoverComponent = __decorate([
         core_1.Component({
             selector: 'pm-product-remover',
-            templateUrl: 'app/products/product-remover.component.html'
+            templateUrl: 'app/products/remove/product-remover.component.html'
         }),
         __metadata("design:paramtypes", [product_service_1.ProductService, router_1.ActivatedRoute, router_1.Router])
     ], ProductRemoverComponent);

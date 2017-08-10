@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { IProduct } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
     selector: 'pm-product-remover',
-    templateUrl: 'app/products/product-remover.component.html'
+    templateUrl: 'app/products/remove/product-remover.component.html'
 })
 
 export class ProductRemoverComponent implements OnInit {
@@ -23,9 +23,10 @@ export class ProductRemoverComponent implements OnInit {
             error => this.errorMessage = <any>error);
     }
 
-    //deleteProduct(id: number): void {
-    //    this._productService.deleteProduct()
-    //        .subscribe(products => this.products = products,
-    //        error => this.errorMessage = <any>error);
-    //}
+    deleteProduct(id: number): void {
+        this._productService.deleteProduct(id)
+            .subscribe(product => this.product = product,
+            error => this.errorMessage = <any>error);
+        this._router.navigate(['products']);
+    }
 }

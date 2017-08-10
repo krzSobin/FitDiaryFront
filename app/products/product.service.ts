@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { NewProductDto } from "./create/new-product.dto";
 
 @Injectable()
 export class ProductService {
@@ -47,10 +48,10 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    deleteProduct(id: number): Observable<any> {
-        return this._http.put(this._productUrl, id)
-            .map((response: Response) => <URL>response.json())
-            .do(data => console.log('Return URL: ' + JSON.stringify(data)))
+    deleteProduct(id: number): Observable<IProduct> {
+        return this._http.delete(this._productUrl + id)
+            .map((response: Response) => <IProduct>response.json())
+            .do(data => console.log('Deleted product: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 

@@ -1,4 +1,4 @@
-<div class="container">
+ï»¿<div class="container">
     <div class="panel panel-primary">
         <div class="panel-body">
             <div class="table-responsive">
@@ -6,9 +6,9 @@
                     <thead>
                         <tr>
                             <th>Produkt</th>
-                            <th>Bia³ko/100g</th>
-                            <th>T³uszcz/100g</th>
-                            <th>Wêglowodany/100g</th>
+                            <th>BiaÅ‚ko/100g</th>
+                            <th>TÅ‚uszcz/100g</th>
+                            <th>WÄ™glowodany/100g</th>
                             <th>W tym cukry</th>
                             <th>Kcal/100g</th>
                             <th>Kategoria</th>
@@ -27,10 +27,8 @@
                     </tbody>
                 </table>
             </div>
-            <label>Czy napewno chcesz usun¹æ?</label>
-            <button type="button" (click)="deleteProduct()" class="btn btn-default">
-                <span class="glyphicon glyphicon-trash">Usuñ</span>
-            </button>
+            <label>Czy napewno chcesz usunÄ…Ä‡?</label>
+            <button type="button" class="btn" (click)="deleteProduct(product.Id)"><span class="glyphicon glyphicon-trash"></span> UsuÅ„</button>
         </div>
     </div>
 </div>

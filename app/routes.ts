@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
-
-import { ProductDetailComponent } from './products/product-detail.component';
-import { ProductRemoverComponent } from './products/product-remover.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { NewProductComponent, ProductListComponent } from "./products/index";
+import { NewProductComponent, ProductListComponent, ProductDetailComponent, ProductRemoverComponent } from "./products/index";
 import { MealListComponent, MealNewComponent } from "./meals/index";
 
 export const appRoutes = [

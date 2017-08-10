@@ -49,9 +49,9 @@ var ProductService = (function () {
             .catch(this.handleError);
     };
     ProductService.prototype.deleteProduct = function (id) {
-        return this._http.put(this._productUrl, id)
+        return this._http.delete(this._productUrl + id)
             .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('Return URL: ' + JSON.stringify(data)); })
+            .do(function (data) { return console.log('Deleted product: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     ProductService.prototype.handleError = function (error) {
