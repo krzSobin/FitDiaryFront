@@ -1,0 +1,47 @@
+﻿<div class="container">
+    <div class='panel panel-primary' *ngIf='product'>
+        <div class='panel-heading' style='font-size:large'>
+            {{product.Name}}
+        </div>
+
+        <div class='panel-body'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='row'>
+                        <div class='col-md-3'>Name:</div>
+                        <div class='col-md-6'>{{product.Name}}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>Białko/100g:</div>
+                        <div class='col-md-6'>{{product.ProteinsPer100g}}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>Tłuszcz/100g:</div>
+                        <div class='col-md-6'>{{product.FatsPer100g}}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>Węglowodany/100g:</div>
+                        <div class='col-md-6'>{{product.CarboPer100g}}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>W tym cukier:</div>
+                        <div class='col-md-6'>{{product.SugarPer100g}}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>Węglowodany/100g:</div>
+                        <div class='col-md-6'>{{product.CarboPer100g}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='panel-footer'>
+            <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+                <i class='glyphicon glyphicon-chevron-left'></i> Wstecz
+            </a>
+            <a class='btn btn-default' (click)='edit()' style='width:80px'>
+                <i class='glyphicon glyphicon-edit'></i> Edytuj
+            </a>
+        </div>
+    </div>
+</div>

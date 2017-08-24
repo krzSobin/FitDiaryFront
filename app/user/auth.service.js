@@ -48,8 +48,8 @@ var AuthService = (function () {
         console.log(this.token);
     };
     AuthService.prototype.isAuthenticated = function () {
-        console.log(JSON.parse(localStorage.getItem('currentUser')));
-        console.log("blaaa " + !this.token);
+        //console.log(JSON.parse(localStorage.getItem('currentUser')));
+        //console.log("blaaa " + !this.token);
         return !!this.token;
     };
     AuthService = __decorate([

@@ -12,20 +12,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var auth_service_1 = require("../auth.service");
 var router_1 = require("@angular/router");
+var user_service_1 = require("../user.service");
 var ProfileComponent = (function () {
-    function ProfileComponent(authService, router) {
+    function ProfileComponent(authService, userService, router) {
         this.authService = authService;
+        this.userService = userService;
         this.router = router;
     }
     ProfileComponent.prototype.logout = function () {
         this.authService.logoutUser();
         this.router.navigateByUrl('/welcome');
     };
+    ProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getFullInfo()
+            .subscribe(function (info) { return _this.fullInfo = info; }, function (error) { return _this.errorMessage = error; });
+        console.log(this.fullInfo);
+    };
     ProfileComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/user/profile/profile.component.html',
         }),
-        __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+        __metadata("design:paramtypes", [auth_service_1.AuthService, user_service_1.UserService, router_1.Router])
     ], ProfileComponent);
     return ProfileComponent;
 }());

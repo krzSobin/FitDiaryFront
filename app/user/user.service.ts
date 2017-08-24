@@ -27,6 +27,10 @@ export class UserService {
         return this._http.delete('/api/users/' + id, this.setToken()).map((response: Response) => response.json());
     }
 
+    getFullInfo() {
+        return this._http.get('http://localhost:55986/api/users/full/', this.setToken()).map((response: Response) => response.json());
+    }
+
     // private helper methods
 
     private setToken() {

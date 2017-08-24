@@ -9,7 +9,7 @@
             <!-- SIDEBAR USER TITLE -->
             <div class="profile-usertitle">
                 <div class="profile-usertitle-name">
-                    Marcus Doe
+                    {{fullInfo.UserBaseInfo.Name}}
                 </div>
                 <div class="profile-usertitle-job">
                     Developer
@@ -66,14 +66,14 @@
             <!-- END MENU -->
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="profile-content">
-            <p>Dieta</p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="profile-content">
-            <p>Trening</p>
+    <div class="col-md-9">
+        <div class="row">
+            <ul class="nav navbar-nav">
+                <li><a [routerLink]="['/product-new']">Nowy</a></li>
+                <li><a [routerLink]="['/products']">Produkty</a></li>
+                <li><a [routerLink]="['/product-new']">Nowy</a></li>
+                <li><a [routerLink]="['/products']">Produkty</a></li>
+            </ul>
         </div>
     </div>
 </div>

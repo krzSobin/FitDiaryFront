@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import { NewProductDto } from "./create/new-product.dto";
+import { EditProductDto } from "./edit/product-edit.dto";
 
 @Injectable()
 export class ProductService {
@@ -41,7 +42,7 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    editProduct(product: IProduct): Observable<URL> {
+    editProduct(product: EditProductDto): Observable<URL> {
         return this._http.put(this._productUrl, product)
             .map((response: Response) => <URL>response.json())
             .do(data => console.log('Return URL: ' + JSON.stringify(data)))
