@@ -7,9 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var product_service_1 = require("./products/product.service");
-var meal_service_1 = require("./meals/meal.service");
-var category_service_1 = require("./products/categories/category.service");
+var index_1 = require("./diet/meals/index");
+var index_2 = require("./diet/products/index");
 var AppComponent = (function () {
     function AppComponent() {
         this.pageTitle = 'Fit Diary';
@@ -19,9 +18,9 @@ var AppComponent = (function () {
             selector: 'pm-app',
             template: "\n        <nav-bar></nav-bar>\n        <router-outlet></router-outlet>\n    ",
             providers: [
-                product_service_1.ProductService,
-                meal_service_1.MealService,
-                category_service_1.CategoryService
+                index_2.ProductService,
+                index_1.MealService,
+                index_2.CategoryService
             ]
         })
     ], AppComponent);

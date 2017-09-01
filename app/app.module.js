@@ -11,8 +11,8 @@ var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
-var index_1 = require("./products/index");
-var index_2 = require("./meals/index");
+var index_1 = require("./diet/products/index");
+var index_2 = require("./diet/meals/index");
 var app_component_1 = require("./app.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var welcome_component_1 = require("./home/welcome.component");
@@ -21,6 +21,7 @@ var auth_service_1 = require("./user/auth.service");
 var user_service_1 = require("./user/user.service");
 var mydatepicker_1 = require("mydatepicker");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
+var ngx_bootstrap_2 = require("ngx-bootstrap");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,6 +33,7 @@ var AppModule = (function () {
                 mydatepicker_1.MyDatePickerModule,
                 http_1.HttpModule,
                 ngx_bootstrap_1.BsDropdownModule.forRoot(),
+                ngx_bootstrap_2.ButtonsModule.forRoot(),
                 router_1.RouterModule.forRoot(routes_1.appRoutes, { useHash: true })
             ],
             declarations: [

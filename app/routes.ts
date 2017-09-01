@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
-import { NewProductComponent, ProductListComponent, ProductDetailComponent, ProductRemoverComponent } from "./products/index";
-import { MealListComponent, MealNewComponent } from "./meals/index";
+import { NewProductComponent, ProductListComponent, ProductDetailComponent, ProductRemoverComponent } from "./diet/products/index";
+import { MealListComponent, MealNewComponent } from "./diet/meals/index";
 
 export const appRoutes = [
     { path: 'products', component: ProductListComponent },

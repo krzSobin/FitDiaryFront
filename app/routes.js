@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var welcome_component_1 = require("./home/welcome.component");
-var index_1 = require("./products/index");
-var index_2 = require("./meals/index");
+var index_1 = require("./diet/products/index");
+var index_2 = require("./diet/meals/index");
 exports.appRoutes = [
     { path: 'products', component: index_1.ProductListComponent },
     { path: 'product/new', component: index_1.NewProductComponent },

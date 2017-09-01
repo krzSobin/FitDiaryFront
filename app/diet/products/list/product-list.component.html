@@ -1,0 +1,86 @@
+﻿<div class="container">
+    <div class="well well-sm">
+        <div class="btn-group">
+            <label class="btn btn-default" [(ngModel)]="isGrid" [btnRadio]="false"><span class="glyphicon glyphicon-th-list"></span>Lista</label>
+            <label class="btn btn-default" [(ngModel)]="isGrid" [btnRadio]="true"><span class="glyphicon glyphicon-th"></span>Siatka</label>
+        </div>
+        <button type="button" class="btn btn-default" [routerLink]="['/product/new']"><span class="glyphicon glyphicon-apple"></span> Nowy</button>
+    </div>
+    <div id="products" class="row list-group">
+        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" [ngClass]="{'grid-group-item': isGrid, 'list-group-item': !isGrid}" *ngFor="let product of products">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        <a [routerLink]="['/product', product.Id]">{{ product.Name }}</a>
+                    </h4>
+                    <p class="group inner list-group-item-text">
+                        B: {{ product.KCalPer100g }}, Ww: {{ product.CarboPer100g }}, T: {{ product.FatsPer100g }} /100g
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                {{ product.KCalPer100g }}kCal/100g
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{pageTitle}}
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">Filter by:</div>
+                <div class="col-md-4">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Filtered by: </h3>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table" *ngIf="products && products.length">
+                    <thead>
+                        <tr>
+                            <th>Produkt</th>
+                            <th>Białko/100g</th>
+                            <th>Tłuszcz/100g</th>
+                            <th>Węglowodany/100g</th>
+                            <th>W tym cukry</th>
+                            <th>Kcal/100g</th>
+                            <th>Kategoria</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <td><a [routerLink]="['/product', product.Id]">{{ product.Name }}</a></td>
+                            <td>{{ product.ProteinsPer100g }}</td>
+                            <td>{{ product.FatsPer100g }}</td>
+                            <td>{{ product.CarboPer100g }}</td>
+                            <td>{{ product.SugarPer100g }}</td>
+                            <td>{{ product.KCalPer100g }}</td>
+                            <td>{{ product.Category }}</td>
+                            <td>
+                                <a [routerLink]="['/product/delete', product.Id]"><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" class="btn" [routerLink]="['/product/new']"><span class="glyphicon glyphicon-apple"></span> Dodaj nowy</button>
+        </div>
+    </div>
+</div>

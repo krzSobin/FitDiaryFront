@@ -10,13 +10,13 @@ import {
     NewProductComponent,
     ProductRemoverComponent,
     CategoryListComponent
-} from './products/index';
+} from './diet/products/index';
 
 import {
     MealListComponent,
     MealNewComponent,
     ProductSearcherComponent
-} from "./meals/index";
+} from "./diet/meals/index";
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav/navbar.component';
@@ -26,7 +26,7 @@ import { AuthService } from './user/auth.service';
 import { UserService } from './user/user.service';
 import { MyDatePickerModule } from 'mydatepicker';
 import { BsDropdownModule } from 'ngx-bootstrap';
-
+import { ButtonsModule } from 'ngx-bootstrap';
 
 @NgModule({
     imports: [
@@ -35,6 +35,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
         MyDatePickerModule,
         HttpModule,
         BsDropdownModule.forRoot(),
+        ButtonsModule.forRoot(),
         RouterModule.forRoot(appRoutes, { useHash: true })],
     declarations: [
         AppComponent,
