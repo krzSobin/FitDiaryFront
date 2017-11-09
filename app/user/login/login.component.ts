@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { LoginModel, AuthService } from "../index";
 
 @Component({
     templateUrl: 'app/user/login/login.component.html',
-    styles: [`
-        em {float:right; color:#E05C65; padding-left:10px; }
-    `]
+    styleUrls: ['app/user/login/login.component.css']
 })
 export class LoginComponent {
     loginInvalid = false;
+    loginModel: LoginModel;
 
     constructor(private authService: AuthService, private router:Router) {
-
+        this.loginModel = new LoginModel();
     }
 
-    login(formValues: any) {
-        this.authService.loginUser(formValues.userName, formValues.password).subscribe(resp => {
+    login() {
+        this.authService.loginUser(this.loginModel).subscribe(resp => {
             if (!resp) {
                 this.loginInvalid = true;
             } else {

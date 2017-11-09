@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { UserService } from '../user.service';
+import { RegistrationModel } from "../index";
+import { UserService } from "../user.service";
 
 @Component({
     templateUrl: 'app/user/register/register.component.html'
 })
 
 export class RegisterComponent {
-    model: any = {};
+    registrationModel: RegistrationModel;
     loading = false;
 
-    constructor( private router: Router, private userService: UserService) { }
+    constructor(private router: Router, private userService: UserService, ) {
+        this.registrationModel = new RegistrationModel();
+    }
 
     register() {
         this.loading = true;
-        this.userService.create(this.model)
+        this.userService.register(this.registrationModel)
             .subscribe(
             data => {
                 //this.alertService.success('Registration successful', true);

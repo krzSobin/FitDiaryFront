@@ -11,18 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var index_1 = require("../index");
 var user_service_1 = require("../user.service");
 var RegisterComponent = (function () {
     function RegisterComponent(router, userService) {
         this.router = router;
         this.userService = userService;
-        this.model = {};
         this.loading = false;
+        this.registrationModel = new index_1.RegistrationModel();
     }
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.loading = true;
-        this.userService.create(this.model)
+        this.userService.register(this.registrationModel)
             .subscribe(function (data) {
             //this.alertService.success('Registration successful', true);
             _this.router.navigate(['/login']);

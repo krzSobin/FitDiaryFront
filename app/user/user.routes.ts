@@ -1,6 +1,4 @@
-import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent, LoginComponent, ProfileComponent } from './index';
 
 export const userRoutes = [
     { path: 'profile', component: ProfileComponent },

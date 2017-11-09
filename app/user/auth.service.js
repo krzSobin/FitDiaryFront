@@ -21,22 +21,24 @@ var AuthService = (function () {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = this.currentUser && this.currentUser.token;
     }
-    AuthService.prototype.loginUser = function (userName, password) {
+    AuthService.prototype.loginUser = function (loginModel) {
         var headers = new http_1.Headers({
             'Content-Type': 'application/x-www-form-urlencoded'
         });
         var options = new http_1.RequestOptions({ headers: headers });
         var params = new URLSearchParams();
-        params.set('Username', userName);
-        params.set('Password', password);
+        params.set('UserName', loginModel.UserName);
+        params.set('Password', loginModel.Password);
         params.set('grant_type', 'password');
         var body = params.toString();
+        console.log(body);
         return this._http.post('http://localhost:55986/token', body, options)
             .do(function (resp) {
             if (resp) {
                 var name_1 = resp.json().userName;
                 var accessToken = resp.json().access_token;
                 localStorage.setItem('currentUser', JSON.stringify({ username: name_1, token: accessToken }));
+                return resp;
             }
         }).catch(function (error) {
             console.log(error);

@@ -10,17 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var auth_service_1 = require("../auth.service");
 var router_1 = require("@angular/router");
+var index_1 = require("../index");
 var LoginComponent = (function () {
     function LoginComponent(authService, router) {
         this.authService = authService;
         this.router = router;
         this.loginInvalid = false;
+        this.loginModel = new index_1.LoginModel();
     }
-    LoginComponent.prototype.login = function (formValues) {
+    LoginComponent.prototype.login = function () {
         var _this = this;
-        this.authService.loginUser(formValues.userName, formValues.password).subscribe(function (resp) {
+        this.authService.loginUser(this.loginModel).subscribe(function (resp) {
             if (!resp) {
                 _this.loginInvalid = true;
             }
@@ -35,9 +36,9 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/user/login/login.component.html',
-            styles: ["\n        em {float:right; color:#E05C65; padding-left:10px; }\n    "]
+            styleUrls: ['app/user/login/login.component.css']
         }),
-        __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+        __metadata("design:paramtypes", [index_1.AuthService, router_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());

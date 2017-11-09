@@ -1,29 +1,24 @@
-<div class="col-md-4 col-md-offset-4">
+<div class="col-sm-6 col-sm-offset-3">
     <h2>Rejestracja</h2>
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
-            <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-            <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            <label for="email">Adres email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="registrationModel.Email" #email="ngModel" required />
+            <div *ngIf="f.submitted && !email.valid" class="help-block">Podaj adres email</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+            <label for="password">Has≥o</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="registrationModel.Password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Wpisz has≥o</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirm-password.valid }">
+            <label for="confirm-password">Potwierdü has≥o</label>
+            <input type="password" class="form-control" name="confirm-password" [(ngModel)]="registrationModel.ConfirmPassword" #confirmPassword="ngModel" required />
+            <div *ngIf="f.submitted && !confirm-password.valid" class="help-block">Password is required</div>
         </div>
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
-            <!--<img *ngIf="loading" src="" />-->
+            <img *ngIf="loading" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-medium.gif" />
             <a [routerLink]="['/login']" class="btn btn-link">Anuluj</a>
         </div>
     </form>

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
-import { IUser } from './user.model';
+import { User } from './user.model';
+import { RegistrationModel } from "./register/registration.model";
 
 @Injectable()
 export class UserService {
@@ -12,23 +13,23 @@ export class UserService {
     }
 
     getById(id: number) {
-        return this._http.get('/api/users/' + id, this.setToken()).map((response: Response) => response.json());
+        return this._http.get('http://localhost:55986/api/users/' + id, this.setToken()).map((response: Response) => response.json());
     }
 
-    create(user: IUser) {
-        return this._http.post('/api/users', user, this.setToken()).map((response: Response) => response.json());
+    register(registrationModel: RegistrationModel) {
+        return this._http.post('http://localhost:55986/api/account/register', registrationModel).map((response: Response) => response.json());
     }
 
-    update(user: IUser) {
+    update(user: User) {
         return this._http.put('/api/users/' + user.id, user, this.setToken()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this._http.delete('/api/users/' + id, this.setToken()).map((response: Response) => response.json());
+        return this._http.delete('http://localhost:55986/api/users/' + id, this.setToken()).map((response: Response) => response.json());
     }
 
-    getFullInfo() {
-        return this._http.get('http://localhost:55986/api/users/full/', this.setToken()).map((response: Response) => response.json());
+    getUserData() {
+        return this._http.get('http://localhost:55986/api/users/', this.setToken()).map((response: Response) => response.json());
     }
 
     // private helper methods

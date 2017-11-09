@@ -19,19 +19,19 @@ var UserService = (function () {
         return this._http.get('/api/users', this.setToken()).map(function (response) { return response.json(); });
     };
     UserService.prototype.getById = function (id) {
-        return this._http.get('/api/users/' + id, this.setToken()).map(function (response) { return response.json(); });
+        return this._http.get('http://localhost:55986/api/users/' + id, this.setToken()).map(function (response) { return response.json(); });
     };
-    UserService.prototype.create = function (user) {
-        return this._http.post('/api/users', user, this.setToken()).map(function (response) { return response.json(); });
+    UserService.prototype.register = function (registrationModel) {
+        return this._http.post('http://localhost:55986/api/account/register', registrationModel).map(function (response) { return response.json(); });
     };
     UserService.prototype.update = function (user) {
         return this._http.put('/api/users/' + user.id, user, this.setToken()).map(function (response) { return response.json(); });
     };
     UserService.prototype.delete = function (id) {
-        return this._http.delete('/api/users/' + id, this.setToken()).map(function (response) { return response.json(); });
+        return this._http.delete('http://localhost:55986/api/users/' + id, this.setToken()).map(function (response) { return response.json(); });
     };
-    UserService.prototype.getFullInfo = function () {
-        return this._http.get('http://localhost:55986/api/users/full/', this.setToken()).map(function (response) { return response.json(); });
+    UserService.prototype.getUserData = function () {
+        return this._http.get('http://localhost:55986/api/users/', this.setToken()).map(function (response) { return response.json(); });
     };
     // private helper methods
     UserService.prototype.setToken = function () {

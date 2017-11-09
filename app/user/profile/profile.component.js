@@ -10,14 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var auth_service_1 = require("../auth.service");
 var router_1 = require("@angular/router");
 var user_service_1 = require("../user.service");
+var index_1 = require("../index");
 var ProfileComponent = (function () {
     function ProfileComponent(authService, userService, router) {
         this.authService = authService;
         this.userService = userService;
         this.router = router;
+        this.userData = new index_1.UserData();
     }
     ProfileComponent.prototype.logout = function () {
         this.authService.logoutUser();
@@ -25,15 +26,16 @@ var ProfileComponent = (function () {
     };
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userService.getFullInfo()
-            .subscribe(function (info) { return _this.fullInfo = info; }, function (error) { return _this.errorMessage = error; });
-        console.log(this.fullInfo);
+        this.userService.getUserData()
+            .subscribe(function (user) { return _this.userData = user.AdditionalData; }, function (error) { return _this.errorMessage = error; });
+        console.log(this.userData);
     };
     ProfileComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/user/profile/profile.component.html',
+            styleUrls: ['app/user/profile/profile.component.css'],
         }),
-        __metadata("design:paramtypes", [auth_service_1.AuthService, user_service_1.UserService, router_1.Router])
+        __metadata("design:paramtypes", [index_1.AuthService, user_service_1.UserService, router_1.Router])
     ], ProfileComponent);
     return ProfileComponent;
 }());

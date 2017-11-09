@@ -1,7 +1,7 @@
-import { IUserBaseInfo } from './user-base-info';
+import { UserData } from '../index';
 import { IBodyMeasurement } from './body-measurement';
 
 export interface IFullInfo {
-    UserBaseInfo: IUserBaseInfo;
+    UserBaseInfo: UserData;
     LastBodyMeasurement: IBodyMeasurement;
 }

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 
-import { IUser } from './user.model';
+import { LoginModel } from "./index";
 
 @Injectable()
 export class AuthService {
@@ -17,17 +17,18 @@ export class AuthService {
         this.token = this.currentUser && this.currentUser.token;
     }
 
-    loginUser(userName: string, password: string) {
+    loginUser(loginModel: LoginModel) {
         let headers = new Headers({
             'Content-Type': 'application/x-www-form-urlencoded'
         });
         let options = new RequestOptions({ headers: headers });
         let params = new URLSearchParams();
-        params.set('Username', userName);
-        params.set('Password', password);
+        params.set('UserName', loginModel.UserName);
+        params.set('Password', loginModel.Password);
         params.set('grant_type', 'password');
 
         let body = params.toString();
+        console.log(body);
 
         return this._http.post('http://localhost:55986/token', body, options)
             .do(resp => {
@@ -36,6 +37,8 @@ export class AuthService {
                     let accessToken = <string>resp.json().access_token;
 
                     localStorage.setItem('currentUser', JSON.stringify({ username: name, token: accessToken }));
+
+                    return resp;
                 }
             }).catch(error => {
                 console.log(error);
