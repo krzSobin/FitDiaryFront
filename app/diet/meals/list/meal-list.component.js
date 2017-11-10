@@ -16,6 +16,7 @@ var MealListComponent = (function () {
     function MealListComponent(_mealService, router) {
         this._mealService = _mealService;
         this.router = router;
+        this.isGrid = false;
         this.pageTitle = "Posiłki";
         this.imageWidth = 50;
         this.imageMargin = 2;
@@ -29,10 +30,17 @@ var MealListComponent = (function () {
         this._mealService.getMeals()
             .subscribe(function (meals) { return _this.meals = meals; }, function (error) { return _this.errorMessage = error; });
     };
+    MealListComponent.prototype.showGrid = function () {
+        this.isGrid = true;
+    };
+    MealListComponent.prototype.showList = function () {
+        this.isGrid = false;
+    };
     MealListComponent = __decorate([
         core_1.Component({
             selector: 'pm-meals',
-            templateUrl: 'app/diet/meals/list/meal-list.component.html'
+            templateUrl: 'app/diet/meals/list/meal-list.component.html',
+            styleUrls: ['app/diet/meals/list/meal-list.component.css']
         }),
         __metadata("design:paramtypes", [index_1.MealService, router_1.Router])
     ], MealListComponent);

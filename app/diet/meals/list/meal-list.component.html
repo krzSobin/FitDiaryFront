@@ -1,4 +1,40 @@
 <div class="container">
+    <div class="well well-sm">
+        <div class="btn-group">
+            <label class="btn btn-default" [(ngModel)]="isGrid" [btnRadio]="false"><span class="glyphicon glyphicon-th-list"></span>Lista</label>
+            <label class="btn btn-default" [(ngModel)]="isGrid" [btnRadio]="true"><span class="glyphicon glyphicon-th"></span>Siatka</label>
+        </div>
+        <button type="button" class="btn btn-default" [routerLink]="['/meals/new']"><span class="glyphicon glyphicon-cutlery"></span> Nowy</button>
+    </div>
+    <div id="products" class="row list-group">
+        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" [ngClass]="{'grid-group-item': isGrid, 'list-group-item': !isGrid}" *ngFor="let meal of meals">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        <a [routerLink]="['/meal', meal.Id]">{{ meal.Date | date: 'dd/MM/yyyy'}}</a>
+                    </h4>
+                    <p class="group inner list-group-item-text">
+                        B: {{ meal.TotalProtein | number:'1.0-2'}}, Ww: {{ meal.TotalCarb | number:'1.0-2' }}, T: {{ meal.TotalFat | number:'1.0-2' }}
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                KCal: {{ meal.TotalKcal | number:'1.0-2' }}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <div class="panel panel-primary">
         <div class="panel-heading">
             {{pageTitle}}
@@ -7,7 +43,7 @@
             <div class="row">
                 <div class="col-md-2">Filter by:</div>
                 <div class="col-md-4">
-                    <input type="text" />
+                    <input type="text"/>
                 </div>
             </div>
             <div class="row">
@@ -18,24 +54,24 @@
             <div class="table-responsive">
                 <table class="table" *ngIf="meals && meals.length">
                     <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Kalorie</th>
-                            <th>Białko</th>
-                            <th>Tłuszcz</th>
-                            <th>Węglowodany</th>
-                            <th>W tym cukry</th>
-                        </tr>
+                    <tr>
+                        <th>Data</th>
+                        <th>Kalorie</th>
+                        <th>Białko</th>
+                        <th>Tłuszcz</th>
+                        <th>Węglowodany</th>
+                        <th>W tym cukry</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let meal of meals">
-                            <td>{{ meal.Date | date:'dd.MM.yyyy'}}</td>
-                            <td>{{ meal.TotalKcal }}</td>
-                            <td>{{ meal.TotalProtein }}</td>
-                            <td>{{ meal.TotalFat }}</td>
-                            <td>{{ meal.TotalCarb }}</td>
-                            <td>{{ meal.TotalSugar }}</td>
-                        </tr>
+                    <tr *ngFor="let meal of meals">
+                        <td>{{ meal.Date | date:'dd.MM.yyyy'}}</td>
+                        <td>{{ meal.TotalKcal }}</td>
+                        <td>{{ meal.TotalProtein }}</td>
+                        <td>{{ meal.TotalFat }}</td>
+                        <td>{{ meal.TotalCarb }}</td>
+                        <td>{{ meal.TotalSugar }}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
